@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    window.onload = function () {
+        resizeFrame(document.getElementById('frame'));
+        swapPage('Plate');
+    }
+
+    function resizeFrame(f) {
+        f.style.height = f.contentWindow.document.body.scrollHeight + "px";
+    }
+
+    function swapPage(page) {
+        if (page == 'Plate')
+            document.getElementById('tabs').style.display = 'none';
+        else
+            document.getElementById('tabs').style.display = 'block';
+        document.getElementById('frame').src = page;
+    }
+
+    function MM_swapImgRestore() { //v3.0
+        var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+    }
+
+    function MM_preloadImages() { //v3.0
+        var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+            var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+                if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+    }
+
+    function MM_findObj(n, d) { //v3.0
+        var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+            d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+        if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+        for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+    }
+
+    function MM_swapImage() { //v3.0
+        var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+            if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+    }
+
+    function MM_openBrWindow(theurl,winname,features) { //v2.0
+        window.open(theurl,winname,features);
+    }
+
+</script>
+
+<div id="tabs">
+    <table width="550" border="0" cellpadding="0" cellspacing="0" align="center" ID="MainNavigation">
+	<tr>
+		<td align="middle">
+			<TABLE cellSpacing="0" cellPadding="0" border="0">
+				<TR>
+					<TD id="_ctl1_CostOfLiving" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_col','','/images/nav_colx10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/salary/col.aspx"><IMG 
+      src="/images/nav_colx10.gif" border="0" 
+      name="topnav_col"></A></TD>
+
+					<TD id="_ctl1_Schools" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_schools','','/images/nav_schoolsx10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/schools/schoolus.aspx"><IMG 
+      src="/images/nav_schoolsx10.gif" border="0" 
+      name="topnav_schools"></A></TD>
+
+					<TD id="_ctl1_CommunityComparison" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_compare','','/images/nav_comparex10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" 
+      href="javascript:swapPage('CommunityComparison');"><IMG 
+      src="/images/nav_comparex10.gif" border="0" 
+      name="topnav_compare"></A></TD>
+
+					<TD id="_ctl1_SalaryAnalyzer" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_salary','','/images/nav_salaryx10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" 
+      href="/aff/www/tools/salary/salaryanalyzer.aspx"><IMG 
+      src="/images/nav_salaryx10.gif" border="0" 
+      name="topnav_salary"></A></TD>
+
+					<TD id="_ctl1_Crime" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_crime','','/images/nav_crimex10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" 
+      href="/aff/www/tools/crime/crime.aspx"><IMG 
+      src="/images/nav_crimex10.gif" border="0" 
+      name="topnav_crime"></A></TD>
+
+					<TD id="_ctl1_CommunityExplorer" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_explorer','','/images/nav_explorerx10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/explorer/index.aspx"><IMG 
+      src="/images/nav_explorerx10.gif" border="0" 
+      name="topnav_explorer"></A></TD>
+
+					<TD id="_ctl1_Planner" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_planner','','/images/nav_plannerx10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/planner/index.aspx"><IMG 
+      src="/images/nav_plannerx10.gif" border="0" 
+      name="topnav_planner"></A></TD>
+
+					<TD id="_ctl1_Calculators" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_calculators','','/images/nav_calculatorsx10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/calculators/amortization.aspx"><IMG 
+      src="/images/nav_calculatorsx10.gif" 
+      border="0" name="topnav_calculators"></A></TD>
+
+					<TD id="_ctl1_MoveNetwork" valign="bottom"><A 
+      onmouseover="MM_swapImage('topnav_moving','','/images/nav_movingx10_on.gif',1)" 
+      onmouseout="MM_swapImgRestore()" 
+      href="/aff/www/tools/forms/moving.aspx"><IMG 
+      src="/images/nav_movingx10.gif" border="0" 
+      name="topnav_moving"></A></TD>
+
+					
+				</TR>
+				<TR height="2" style="height:2px">
+					<TD colSpan="30" valign="top">
+						<div style="height:2px;" class="bgcolor1">
+							<IMG height="2" src="/sharedimages/transparent.gif" width="1" border="0">
+						</div>
+					</TD>
+				</TR>
+			</TABLE>
+		</td>
+	</tr>
+</table>
+
+</div>
+<div style="width:600px; margin-left:auto; margin-right:auto;" id="page_display">
+    <iframe src="Plate" id="frame" style="width:100%;" frameBorder="0"></iframe>
+</div>

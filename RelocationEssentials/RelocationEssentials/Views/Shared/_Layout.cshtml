@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link class="include" rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jquery.jqplot.min.css")" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../excanvas.js"></script><![endif]-->
+    <script class="include" type="text/javascript" src="../jquery.min.js"></script>
+    <script type="text/javascript">
+        function tabSwitch(active) {
+            for (var i = 1; i < 11; i++) {
+                document.getElementById('tabs-' + i).style.display = 'none';
+            }
+            document.getElementById('tabs-' + active).style.display = 'block';
+        }
+    </script>
+</head>
+
+<body>
+    @RenderBody()
+</body>
+</html>

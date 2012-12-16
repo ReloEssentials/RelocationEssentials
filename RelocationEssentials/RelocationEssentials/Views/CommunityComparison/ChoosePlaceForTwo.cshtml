@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "ChoosePlaceForTwo";
+}
+
+@using(Html.BeginForm())
+{
+    <div id="main">
+        <img src="/images/icon_commcompare.gif" />
+        <img src="/images/title_communityinformation.gif" />
+        <br />
+        <img src="/images/bnr_choosealocation.gif" />
+        <br />
+        <span style="float:left; width:33%">
+            Origin
+            <br />
+            @Html.DropDownList("Place1", (IEnumerable<SelectListItem>) ViewBag.S1E)
+        </span>
+        <span style="float:left; width:15%">
+            <img src="/images/to.gif" />
+        </span>
+        <span style="float:left; width:33%">
+            Destination
+            <br />
+            @Html.DropDownList("Place2", (IEnumerable<SelectListItem>) ViewBag.S2E)
+        </span>
+        <div>
+            <img height="1px" src="/images/mainpx.gif" width="470px" />
+        </div>
+        <br />
+        <input type="submit" value="" id="submitButton" />
+    </div>
+}

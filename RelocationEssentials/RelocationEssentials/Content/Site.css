@@ -1,0 +1,136 @@
+﻿body
+{
+    font-size:10px;
+    font-family:Verdana;
+    color: #232323;
+    background-color: #fff;
+}
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+th 
+{
+    border: 1px solid #009;
+}
+
+a 
+{
+    text-decoration:none;
+}
+
+a:hover 
+{
+    text-decoration:none;
+}
+
+a:visited 
+{
+    text-decoration:none;
+}
+
+a:active 
+{
+    text-decoration:none;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+
+fieldset 
+{
+    border:1px solid #ddd;
+    padding:0 1.4em 1.4em 1.4em;
+    margin:0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin:0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/*Added styles*/
+#main 
+{
+    margin-left:auto;
+    margin-right:auto;
+    width:550px;
+    font-size:10px;
+    font-family:Verdana;
+}
+
+.text 
+{
+    width:500px;
+}
+
+.centered 
+{
+    margin-left:auto;
+    margin-right:auto;
+    width:500px;
+}
+
+.tabbed 
+{
+    margin-left:25px;
+}
+
+#submitButton 
+{
+    background-image:url("/images/btn_submit.gif");
+    width:75px;
+    height:20px;
+    background-position:center;
+    margin-left:200px;
+}

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using(Html.BeginForm())
+{
+    <div id="main">
+        <img src="/images/icon_commcompare.gif" />
+        <img src="/images/title_communityinformation.gif" />
+        <div class="text" >
+            You can choose two (2) locations to compare. If you are only interested in your local area, simply select origin information. If you would like to compare locations side-by-side enter both origin and destination information. Once the results are produced, you will be given the opportunity to add one additional location to your comparison analysis.
+        </div>
+        <br />
+        <img src="/images/bnr_choosealocation.gif" />
+        <div class="centered">
+            <span style="width:33%; float:left">
+                Origin State
+                <br />
+                @Html.DropDownList("StateList1", (IEnumerable<SelectListItem>) ViewBag.States)
+                <br />
+                Destination State
+                <br />
+                @Html.DropDownList("StateList2", (IEnumerable<SelectListItem>) ViewBag.States)
+            </span>
+            <span style="width:15%; float:left">
+                <img src="/images/or.gif" />
+            </span>
+            <span style="width:33%; float:left">
+                Origin Zip
+                <br />
+                @Html.Editor("Zip1")
+                <br />
+                Destination Zip
+                <br />
+                @Html.Editor("Zip2")
+            </span>
+            <div>
+                <img height="1px" src="/images/mainpx.gif" width="470px" />
+            </div>
+            <br />
+            <input type="submit" value="" id="submitButton" />
+        </div>
+    </div>
+}

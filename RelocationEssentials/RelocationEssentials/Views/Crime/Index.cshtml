@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using(Html.BeginForm())
+{
+    <div id="main">
+        <img src="/images/icon_crime.gif" />
+        <img src="/images/title_crimereports.gif" />
+        <div class="text" >
+            When making a decision regarding relocation, it is necessary to consider the safety of your new neighborhood. Check out zip code level data on every community in the United States.
+        </div>
+        <br />
+        <img src="/images/bnr_choosealocation.gif" />
+        <div class="centered">
+            <span style="width:33%; float:left">
+                State
+                <br />
+                @Html.DropDownList("State", (IEnumerable<SelectListItem>) ViewBag.States)
+            </span>
+            <span style="width:15%; float:left">
+                <img src="/images/or.gif" />
+            </span>
+            <span style="width:33%; float:left">
+                Zip
+                <br />
+                @Html.Editor("Zip")
+            </span>
+            <div>
+                <img height="1px" src="/images/mainpx.gif" width="470px" />
+            </div>
+            <br />
+            <input type="submit" value="" id="submitButton" />
+        </div>
+    </div>
+}

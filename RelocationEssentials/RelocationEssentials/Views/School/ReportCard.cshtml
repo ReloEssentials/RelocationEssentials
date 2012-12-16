@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "ReportCard";
+}
+<script type="text/javascript">
+    var topTab = "School";
+
+    window.onload = function () {
+        swapTop(1);
+    }
+
+    function resizeFrame(f) {
+        f.style.height = f.contentWindow.document.body.scrollHeight + "px";
+    }
+
+    function swapTop(num) {
+        if (num == 1) {
+            document.getElementById("schooltab").src = "/images/schooltab_school_on.gif";
+            document.getElementById("districttab").src = "/images/schooltab_district.gif";
+            document.getElementById("comparetab").src = "/images/schooltab_compare.gif";
+            topTab = "School";
+        }
+        else if (num == 2) {
+            document.getElementById("schooltab").src = "/images/schooltab_school.gif";
+            document.getElementById("districttab").src = "/images/schooltab_district_on.gif";
+            document.getElementById("comparetab").src = "/images/schooltab_compare.gif";
+            topTab = "District";
+        }
+        else if (num == 3) {
+            document.getElementById("schooltab").src = "/images/schooltab_school.gif";
+            document.getElementById("districttab").src = "/images/schooltab_district.gif";
+            document.getElementById("comparetab").src = "/images/schooltab_compare_on.gif";
+            topTab = "Compare";
+        }
+        document.getElementById("overviewtab").src = "/images/schooltab_overview.gif";
+        document.getElementById("studentstab").src = "/images/schooltab_students.gif";
+        document.getElementById("teacherstab").src = "/images/schooltab_teachers.gif";
+        document.getElementById("facilitiestab").src = "/images/schooltab_facilities.gif";
+        document.getElementById("academiatab").src = "/images/schooltab_academia.gif";
+        document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula.gif";
+        document.getElementById('schoolFrame2').src = topTab + "Front";
+        resizeFrame(document.getElementById('schoolFrame2'));
+    }
+
+    function swapPage(num) {
+        var page;
+
+        if (num == 1) {
+            document.getElementById("overviewtab").src = "/images/schooltab_overview_on.gif";
+            document.getElementById("studentstab").src = "/images/schooltab_students.gif";
+            document.getElementById("teacherstab").src = "/images/schooltab_teachers.gif";
+            document.getElementById("facilitiestab").src = "/images/schooltab_facilities.gif";
+            document.getElementById("academiatab").src = "/images/schooltab_academia.gif";
+            document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula.gif";
+            page = "Overview";
+        }
+        else if (num == 2) {
+            document.getElementById("overviewtab").src = "/images/schooltab_overview.gif";
+            document.getElementById("studentstab").src = "/images/schooltab_students_on.gif";
+            document.getElementById("teacherstab").src = "/images/schooltab_teachers.gif";
+            document.getElementById("facilitiestab").src = "/images/schooltab_facilities.gif";
+            document.getElementById("academiatab").src = "/images/schooltab_academia.gif";
+            document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula.gif";
+            page = "Students";
+        }
+        else if (num == 3) {
+            document.getElementById("overviewtab").src = "/images/schooltab_overview.gif";
+            document.getElementById("studentstab").src = "/images/schooltab_students.gif";
+            document.getElementById("teacherstab").src = "/images/schooltab_teachers_on.gif";
+            document.getElementById("facilitiestab").src = "/images/schooltab_facilities.gif";
+            document.getElementById("academiatab").src = "/images/schooltab_academia.gif";
+            document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula.gif";
+            page = "Teachers";
+        }
+        else if (num == 4) {
+            document.getElementById("overviewtab").src = "/images/schooltab_overview.gif";
+            document.getElementById("studentstab").src = "/images/schooltab_students.gif";
+            document.getElementById("teacherstab").src = "/images/schooltab_teachers.gif";
+            document.getElementById("facilitiestab").src = "/images/schooltab_facilities_on.gif";
+            document.getElementById("academiatab").src = "/images/schooltab_academia.gif";
+            document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula.gif";
+            page = "Facilities";
+        }
+        else if (num == 5) {
+            document.getElementById("overviewtab").src = "/images/schooltab_overview.gif";
+            document.getElementById("studentstab").src = "/images/schooltab_students.gif";
+            document.getElementById("teacherstab").src = "/images/schooltab_teachers.gif";
+            document.getElementById("facilitiestab").src = "/images/schooltab_facilities.gif";
+            document.getElementById("academiatab").src = "/images/schooltab_academia_on.gif";
+            document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula.gif";
+            page = "Academia";
+        }
+        else {
+            document.getElementById("overviewtab").src = "/images/schooltab_overview.gif";
+            document.getElementById("studentstab").src = "/images/schooltab_students.gif";
+            document.getElementById("teacherstab").src = "/images/schooltab_teachers.gif";
+            document.getElementById("facilitiestab").src = "/images/schooltab_facilities.gif";
+            document.getElementById("academiatab").src = "/images/schooltab_academia.gif";
+            document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula_on.gif";
+            page = "XCurricula";
+        }
+        document.getElementById('schoolFrame2').src = ""+topTab+page;
+        resizeFrame(document.getElementById('schoolFrame2'));
+    }
+
+</script>
+
+
+<div align="center" style="width:560px">
+    <div>
+        <a href="javascript:swapTop(1);"><img id="schooltab" src="/images/schooltab_school.gif" alt="School" border="0" /></a>
+	    <a href="javascript:swapTop(2);"><img id="districttab" src="/images/schooltab_district.gif" alt="District" border="0" /></a>
+	    <a href="javascript:swapTop(3);"><img id="comparetab" src="/images/schooltab_compare_on.gif" alt="Compare" border="0" /></a>
+    </div>
+    <table style="margin-top:-4px">
+        <tr>
+            <td style="margin:0px;padding:0px;border:solid 1px black;">								       
+                <iframe src="SchoolFront" id="schoolFrame2" style="width:520px" frameborder="0"></iframe>
+            </td>
+            <td width="30" align=left valign="top" style="margin:0px;padding:0px;">
+                <a href="javascript:swapPage(1);"><img id="overviewtab" src="/images/schooltab_overview.gif" alt="School Overview" border="0"></a>
+                <br>
+		        <a href="javascript:swapPage(2);"><img id="studentstab" src="/images/schooltab_students.gif" alt="Students" border="0"></a>
+                <br>
+		        <a href="javascript:swapPage(3);"><img id="teacherstab" src="/images/schooltab_teachers.gif" alt="Teachers" border="0"></a>
+                <br>
+		        <a href="javascript:swapPage(4);"><img id="facilitiestab" src="/images/schooltab_facilities.gif" alt="Facilities" border="0"></a>
+                <br>
+		        <a href="javascript:swapPage(5);"><img id="academiatab" src="/images/schooltab_academia.gif" alt="Academia" border="0"></a>
+                <br>
+		        <a href="javascript:swapPage(6);"><img id="xcurriculatab" src="/images/schooltab_xcurricula.gif" alt="Extra Curricula" border="0"></a>
+                <br>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,403 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<table align="center" cellspacing="0" cellpadding="0" border="0" width="550" id="ReloWrappingTable"><tr><td>
+<div id="TitleBanner">
+<img src="/images/icon_movingnetwork.gif" id="_ctl0_img_Icon" />
+<img src="/images/title_movingnetwork.gif" id="_ctl0_img_Banner" />
+</div><form name="Moving" method="post" action="moving.aspx" id="Moving">
+<input type="hidden" name="__VIEWSTATE" value="dDwzMjQ4MDAzOTU7dDw7bDxpPDE+O2k8Mz47PjtsPHQ8O2w8aTwwPjtpPDE+O2k8Mj47aTwzPjtpPDQ+O2k8NT47aTw2PjtpPDc+O2k8OD47PjtsPHQ8cDxsPFZpc2libGU7PjtsPG88dD47Pj47Oz47dDxwPGw8VmlzaWJsZTs+O2w8bzx0Pjs+Pjs7Pjt0PHA8bDxWaXNpYmxlOz47bDxvPHQ+Oz4+Ozs+O3Q8cDxsPFZpc2libGU7PjtsPG88dD47Pj47Oz47dDxwPGw8VmlzaWJsZTs+O2w8bzx0Pjs+Pjs7Pjt0PHA8bDxWaXNpYmxlOz47bDxvPHQ+Oz4+Ozs+O3Q8cDxsPFZpc2libGU7PjtsPG88dD47Pj47Oz47dDxwPGw8VmlzaWJsZTs+O2w8bzx0Pjs+Pjs7Pjt0PHA8bDxWaXNpYmxlOz47bDxvPHQ+Oz4+Ozs+Oz4+O3Q8O2w8aTwxPjtpPDM+Oz47bDx0PHA8bDxzcmM7PjtsPC9zaXRlcy93d3cvaW1hZ2VzL2ljb25fbW92aW5nbmV0d29yay5naWY7Pj47Oz47dDxwPGw8c3JjOz47bDwvc2l0ZXMvd3d3L2ltYWdlcy90aXRsZV9tb3ZpbmduZXR3b3JrLmdpZjs+Pjs7Pjs+Pjs+PjtsPGNibFJvb21zOjA7Y2JsUm9vbXM6MTtjYmxSb29tczoyO2NibFJvb21zOjM7Y2JsUm9vbXM6NDtjYmxSb29tczo1O2NibFJvb21zOjY7Y2JsUm9vbXM6NztjYmxSb29tczo4O2NibFJvb21zOjk7Y2JsUm9vbXM6MTA7Y2JsUm9vbXM6MTA7YnRuU3VibWl0Oz4+iQKc4pXznB6glVtU5jCeOiq3XbU=" />
+
+	<table cellSpacing="3" cellPadding="0" width="500" border="0">
+		<tr>
+			<td colSpan="2">
+				<p>Let us start "your" process on the right foot. It's real simple. Fill out our 
+					form and we will have a FREE, no-obligation quote for you (based on the 
+					information you provided) via the email address you provided within eight 
+					hours. Obviously, this estimate cannot be binding, but it will allow you a 
+					quality benchmark from which to work.</p>
+				<p>After sending this estimate, the company will follow-up with a phone call to 
+					insure your receipt and answer any questions you may have and give you the 
+					chance to schedule a one-on-one meeting with a company representative, in your 
+					home, to verify the estimate. With the in-house meeting, you may be afforded 
+					the opportunity to "cap" your move.</p>
+				<p>Rest assured, these quotes will not be "low-ball" prices. We have relationships 
+					with two of the most respected companies in America, United Van Lines, and Paul 
+					Arpin Van Lines, and want to pass our "savings" on to you. They will be 
+					good-faith estimates based on the information "you" provide.</p>
+				<p>NOTE: It is important to remember, that because this is a form feed request, the 
+					quoted price is an estimate only. When the company representative calls, it is 
+					highly recommended that you schedule an in-home consultation. However, you are 
+					under no obligation.</p>
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height="10" src="/sharedimages/transparent.gif" width="1"></td>
+		<tr>
+			<td align="left" colSpan="2"></td>
+		</tr>
+		<tr>
+			<td class="textsize2bold" colSpan="2">Contact Information</td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height=1 src="/images/mainpx.gif" width=500></td>
+		</tr>
+		<tr>
+			<td>Name
+				<br>
+				<input name="tbName" type="text" id="tbName" /></td>
+			<td>Phone Number
+				<br>
+				<input name="tbPhone" type="text" id="tbPhone" /></td>
+		</tr>
+		<tr>
+			<td>E-mail Address
+				
+				<br>
+				<input name="tbEmail" type="text" id="tbEmail" /></td>
+			<td>Anticipated Move Date:
+				<br>
+				<input name="tbMoveDate" type="text" id="tbMoveDate" />
+            </td>
+        </tr>
+		<tr>
+			<td><IMG height="15" src="/sharedimages/transparent.gif" width="1"></td>
+		</tr>
+		<tr>
+			<td>Current Address<br>
+				<input name="tbOrgAddress" type="text" id="tbOrgAddress" /></td>
+			<td>Destination Address<br>
+				<input name="tbDesAddress" type="text" id="tbDesAddress" /></td>
+		</tr>
+		<tr>
+			<td>City
+				<br>
+				<input name="tbOrgCity" type="text" id="tbOrgCity" /></td>
+			<td>City
+				<br>
+				<input name="tbDesCity" type="text" id="tbDesCity" /></td>
+		</tr>
+		<tr>
+			<td height="33">State
+				<br>
+				<select name="ddlOrgState" id="ddlOrgState">
+	<option value="">Select One</option>
+	<option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+
+</select></td>
+			<td height="33">State
+				<br>
+				<select name="ddlDesState" id="ddlDesState">
+	<option value="">Select One</option>
+	<option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+
+</select></td>
+		</tr>
+		<tr>
+			<td>Zip Code
+				<br>
+				<input name="tbOrgZip" type="text" id="tbOrgZip" /></td>
+			<td>Zip Code<br>
+				<input name="tbDesZip" type="text" id="tbDesZip" /></td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height="10" src="/sharedimages/transparent.gif" width="1"></td>
+		</tr>
+		<tr>
+			<td class="textsize2bold" colSpan="2">Current Living Environment</td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height=1 src="/images/mainpx.gif" width=500></td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height="2" src="/sharedimages/transparent.gif" width="1"></td>
+		</tr>
+		<tr>
+			<td>Type of residence</td>
+			<td><select name="ddlResidence" id="ddlResidence">
+	<option value="">Select One</option>
+	<option value="House">House</option>
+	<option value="Appartment">Appartment</option>
+
+</select></td>
+		</tr>
+		<tr>
+			<td>How long in current residence</td>
+			<td><select name="ddlYears" id="ddlYears">
+	<option value="">Select One</option>
+	<option value="1">1 year</option>
+	<option value="2">2 years</option>
+	<option value="3">3 years</option>
+	<option value="4">4 years</option>
+	<option value="5">5 years</option>
+	<option value="6">6 years</option>
+	<option value="7">7 years</option>
+	<option value="8">8 years</option>
+	<option value="9">9 years</option>
+	<option value="10+">10+ years</option>
+
+</select></td>
+		</tr>
+		<tr>
+			<td>Number of adults living in your house</td>
+			<td><select name="ddlAdults" id="ddlAdults">
+	<option value="">Select One</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6+">6+</option>
+
+</select></td>
+		</tr>
+		<tr>
+			<td>Number of children living in your house</td>
+			<td><select name="ddlChildren" id="ddlChildren">
+	<option value="">Select One</option>
+	<option value="0">0</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6+">6+</option>
+
+</select></td>
+		</tr>
+		<tr>
+			<td>Approximate square footage of your house</td>
+			<td><select name="ddlFootage" id="ddlFootage">
+	<option value="">Select One</option>
+	<option value="less then 1500">less then 1500</option>
+	<option value="1500 - 2000">1500 to 2000</option>
+	<option value="2000 - 2300">2000 to 2300</option>
+	<option value="2300 - 3000">2300 to 3000</option>
+	<option value="3000 - 4000">3000 to 4000</option>
+	<option value="4000+">4000+</option>
+
+</select></td>
+		</tr>
+		<TR>
+			<TD>Number of bedrooms</TD>
+			<td><select name="ddlBedrooms" id="ddlBedrooms">
+	<option value="">Select One</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6+">6+</option>
+
+</select></td>
+		</TR>
+		<tr>
+			<td colSpan="2">Additional rooms you will be moving</td>
+		</tr>
+		<tr>
+			<td colSpan="2"><table id="cblRooms" border="0" width="500">
+	<tr>
+		<td><input id="cblRooms_0" type="checkbox" name="cblRooms:0" /><label for="cblRooms_0">Attic</label></td><td><input id="cblRooms_3" type="checkbox" name="cblRooms:3" /><label for="cblRooms_3">Dining</label></td><td><input id="cblRooms_6" type="checkbox" name="cblRooms:6" /><label for="cblRooms_6">Living	Room</label></td><td><input id="cblRooms_9" type="checkbox" name="cblRooms:9" /><label for="cblRooms_9">Shed</label></td>
+	</tr><tr>
+		<td><input id="cblRooms_1" type="checkbox" name="cblRooms:1" /><label for="cblRooms_1">Balcony</label></td><td><input id="cblRooms_4" type="checkbox" name="cblRooms:4" /><label for="cblRooms_4">Garage</label></td><td><input id="cblRooms_7" type="checkbox" name="cblRooms:7" /><label for="cblRooms_7">Office</label></td><td><input id="cblRooms_10" type="checkbox" name="cblRooms:10" /><label for="cblRooms_10">Storage</label></td>
+	</tr><tr>
+		<td><input id="cblRooms_2" type="checkbox" name="cblRooms:2" /><label for="cblRooms_2">Basement</label></td><td><input id="cblRooms_5" type="checkbox" name="cblRooms:5" /><label for="cblRooms_5">Kitchen</label></td><td><input id="cblRooms_8" type="checkbox" name="cblRooms:8" /><label for="cblRooms_8">Patio</label></td>
+	</tr>
+</table></td>
+		</tr>
+		<tr>
+			<td colSpan="2">List items that require special handeling (ex: piano, pool table, 
+				fine art)<br>
+				<textarea name="tbItems" rows="4" cols="57" id="tbItems"></textarea></td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height="5" src="/sharedimages/transparent.gif" width="1"></td>
+		</tr>
+		<tr>
+			<td colSpan="2"><b>If you are moving to/from an apartment, answer the following</b></td>
+		</tr>
+		<tr>
+			<td>Does your apartment building have an elevator</td>
+			<td><table id="rblElevator" border="0">
+	<tr>
+		<td><input id="rblElevator_0" type="radio" name="rblElevator" value="Yes" /><label for="rblElevator_0">Yes</label></td><td><input id="rblElevator_1" type="radio" name="rblElevator" value="No" checked="checked" /><label for="rblElevator_1">No</label></td>
+	</tr>
+</table></td>
+		</tr>
+		<tr>
+			<td>Distance from the apartment to elevator</td>
+			<td><select name="ddlElevatorDistance" id="ddlElevatorDistance">
+	<option value="">Select One</option>
+	<option value="Less than 75 feet">Less than 75 feet</option>
+	<option value="More than 75 feet">More than 75 feet</option>
+
+</select></td>
+		</tr>
+		<tr>
+			<td>Distance from elevator to loading dock</td>
+			<td><select name="ddlLoadingDistance" id="ddlLoadingDistance">
+	<option value="">Select One</option>
+	<option value="Less than 75 feet">Less than 75 feet</option>
+	<option value="More than 75 feet">More than 75 feet</option>
+
+</select></td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height="10" src="/sharedimages/transparent.gif" width="1"></td>
+		</tr>
+		<tr>
+			<td class="textsize2bold" colSpan="2">Other Information</td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height=1 src="/images/mainpx.gif" width=500></td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height="2" src="/sharedimages/transparent.gif" width="1"></td>
+		</tr>
+		<tr>
+			<td>Will you be moving an automobile?</td>
+			<td><table id="rblAuto" border="0">
+	<tr>
+		<td><input id="rblAuto_0" type="radio" name="rblAuto" value="Yes" /><label for="rblAuto_0">Yes</label></td><td><input id="rblAuto_1" type="radio" name="rblAuto" value="No" /><label for="rblAuto_1">No</label></td>
+	</tr>
+</table></td>
+		</tr>
+		<tr>
+			<td>Will you require any packing material?</td>
+			<td><table id="rblPackingMaterial" border="0">
+	<tr>
+		<td><input id="rblPackingMaterial_0" type="radio" name="rblPackingMaterial" value="Yes" /><label for="rblPackingMaterial_0">Yes</label></td><td><input id="rblPackingMaterial_1" type="radio" name="rblPackingMaterial" value="No" /><label for="rblPackingMaterial_1">No</label></td>
+	</tr>
+</table></td>
+		</tr>
+		<tr>
+			<td>Will you require any packing services?</td>
+			<td><table id="rblPackingService" border="0">
+	<tr>
+		<td><input id="rblPackingService_0" type="radio" name="rblPackingService" value="Yes" /><label for="rblPackingService_0">Yes</label></td><td><input id="rblPackingService_1" type="radio" name="rblPackingService" value="No" /><label for="rblPackingService_1">No</label></td>
+	</tr>
+</table></td>
+		</tr>
+		<tr>
+			<td>Will you require any storage?</td>
+			<td><table id="rblStorage" border="0">
+	<tr>
+		<td><input id="rblStorage_0" type="radio" name="rblStorage" value="Yes" /><label for="rblStorage_0">Yes</label></td><td><input id="rblStorage_1" type="radio" name="rblStorage" value="No" /><label for="rblStorage_1">No</label></td>
+	</tr>
+</table></td>
+		</tr>
+		<tr>
+			<td colSpan="2"><IMG height="10" src="/sharedimages/transparent.gif" width="1"></td>
+		</tr>
+		<tr>
+			<td colSpan="2">Do you have any specific questions we can answer?<br>
+				<textarea name="tbQuestions" rows="5" cols="57" id="tbQuestions"></textarea></td>
+		</tr>
+		<tr>
+			<td colSpan="2" align="center"><br>
+				<input type="image" name="btnSubmit" onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="btnSubmit" src="/images/btn_submit.gif" alt="Submit" border="0" /></td>
+		</tr>
+	</table>
+</form>
+</td></tr></table>

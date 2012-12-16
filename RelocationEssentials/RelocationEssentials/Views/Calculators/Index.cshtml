@@ -1,0 +1,1467 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+    window.onload = function () {
+        swapTab(1, 1, 1);
+    }
+    function swapTab(tab, content, right) {
+        for (var i = 1; i < 5; i++) {
+            document.getElementById('tabs-' + i).style.display = 'none';
+        }
+        for (var i = 1; i < 11; i++) {
+            document.getElementById('content-' + i).style.display = 'none';
+            document.getElementById('right-' + i).style.display = 'none';
+        }
+        document.getElementById('tabs-' + tab).style.display = 'block';
+        document.getElementById('content-' + content).style.display = 'block';
+        document.getElementById('right-' + right).style.display = 'block';
+    }
+</script>
+<div style="width:550px; margin-left:auto; margin-right:auto;">
+    <div>
+        <img src="/images/icon_calculators.gif" />
+        <img src="/images/title_calculators.gif" />
+    </div>
+    <br />
+    <div style="width:100%">
+        Financing a new home is one of the most stressful parts of any relocation.  We have developed a total of ten calculators that will answer many
+			of the questions you may have, such as "How much can I afford" "Should I rent or buy" and "What will my monthly payment be"
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+        <div id="tabs-1">
+            <a href="javascript:swapTab(1, 1, 1);">
+                <img src="/images/AmortizationTop_on.gif" width="75" height="18" alt="Figure out just how much you can afford." border="0">
+            </a>
+            <a href="javascript:swapTab(2, 3, 3);">
+                <img src="/images/InvestmentTop.gif" width="75" height="18" alt="Find out what your new home will cost." border="0">
+            </a>
+            <a href="javascript:swapTab(3, 7, 7);">
+                <img src="/images/TermTop.gif" width="91" height="18" alt="Consider every option before making the purchase." border="0">
+            </a>
+            <a href="javascript:swapTab(4, 10, 10);">
+                <img src="/images/RentTop.gif" width="75" height="18" alt="Get the full picture surrounding renting versus buying." border="0">
+            </a>
+        </div>
+        <div id="tabs-2">
+            <a href="javascript:swapTab(1, 1, 1);">
+                <img src="/images/AmortizationTop.gif" width="75" height="18" alt="Figure out just how much you can afford." border="0">
+            </a>
+            <a href="javascript:swapTab(2, 3, 3);">
+                <img src="/images/InvestmentTop_on.gif" width="75" height="18" alt="Find out what your new home will cost." border="0">
+            </a>
+            <a href="javascript:swapTab(3, 7, 7);">
+                <img src="/images/TermTop.gif" width="91" height="18" alt="Consider every option before making the purchase." border="0">
+            </a>
+            <a href="javascript:swapTab(4, 10, 10);">
+                <img src="/images/RentTop.gif" width="75" height="18" alt="Get the full picture surrounding renting versus buying." border="0">
+            </a>
+        </div>
+        <div id="tabs-3">
+            <a href="javascript:swapTab(1, 1, 1);">
+                <img src="/images/AmortizationTop.gif" width="75" height="18" alt="Figure out just how much you can afford." border="0">
+            </a>
+            <a href="javascript:swapTab(2, 3, 3);">
+                <img src="/images/InvestmentTop.gif" width="75" height="18" alt="Find out what your new home will cost." border="0">
+            </a>
+            <a href="javascript:swapTab(3, 7, 7);">
+                <img src="/images/TermTop_on.gif" width="91" height="18" alt="Consider every option before making the purchase." border="0">
+            </a>
+            <a href="javascript:swapTab(4, 10, 10);">
+                <img src="/images/RentTop.gif" width="75" height="18" alt="Get the full picture surrounding renting versus buying." border="0">
+            </a>
+        </div>
+        <div id="tabs-4">
+            <a href="javascript:swapTab(1, 1, 1);">
+                <img src="/images/AmortizationTop.gif" width="75" height="18" alt="Figure out just how much you can afford." border="0">
+            </a>
+            <a href="javascript:swapTab(2, 3, 3);">
+                <img src="/images/InvestmentTop.gif" width="75" height="18" alt="Find out what your new home will cost." border="0">
+            </a>
+            <a href="javascript:swapTab(3, 7, 7);">
+                <img src="/images/TermTop.gif" width="91" height="18" alt="Consider every option before making the purchase." border="0">
+            </a>
+            <a href="javascript:swapTab(4, 10, 10);">
+                <img src="/images/RentTop_on.gif" width="75" height="18" alt="Get the full picture surrounding renting versus buying." border="0">
+            </a>
+        </div>
+        <table style="margin-top:-4px">
+            <tr>
+                <td style="margin:0px;padding:0px;border:solid 1px black;">
+                    <div id="content-1">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr valign="top">
+                                            <td colspan="2" valign="top">Would you like to know if you qualify for the mortage that you are considering 
+					With a few easy entries, you can determine if your income qualifies you for the 
+					house you are interested in.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_incomerequirement.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+                                                                        <input name="DownPMT" type="text" value="0" id="DownPMT" tabindex="1" />
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2" align="center">
+                                                                        <br>
+                                                                        <br>
+                                                                        <center><input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" /></center>
+                                                                        <br>
+                                                                        <br>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4" valign="top">We will use a number of assumptions to complete the Income Required analysis. 
+											If you would like to amend these assumptions for your scenario, please click
+											<a id="Edit" href="javascript:{if (typeof(Page_ClientValidate) != 'function' ||  Page_ClientValidate()) __doPostBack('Edit','')} "><u>here</u>.</a>
+                                                                        <br>
+                                                                        <br>
+                                                                        <br>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-2">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr>
+                                            <td colspan="2" valign="top">When looking at homes, it is important to understand what you can afford. This 
+					calculator will use your current income and your anticipated down payment to 
+					calculate the maximum home you can afford.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_prequalify.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual income.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Income" type="text" maxlength="32" id="Income" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="DownPMT" type="text" id="DownPMT" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4" align="center">
+                                                                        <center><br>
+												<br>
+												<input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
+												<br>
+												<br>
+											</center>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4" valign="top">We will use a number of assumptions to complete your Prequalification analysis. 
+											If you would like to amend these assumptions for your scenario, please click
+											<a id="Edit" href="javascript:{if (typeof(Page_ClientValidate) != 'function' ||  Page_ClientValidate()) __doPostBack('Edit','')} "><u>here</u>.</a>
+                                                                        <br>
+                                                                        <br>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-3">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <p>
+                                        Find out what your mortgage payment will be if you purchase your new home. Just 
+		enter the home price, down payment interest rate and loan term, and our 
+		Mortgage Calculator will do the rest. For your reference, the amortization 
+		schedule can be shown on a monthly or annual basis. Indicate your preference at 
+		the bottom of the data entry screen.
+		
+                                    </p>
+
+                                    <img alt="Community Location" src="/images/bnr_Amortization.gif" class="OldMiniBanner">
+                                    <table cellspacing="0" cellpadding="2" border="0" width="100%" id="OldCalculatorsTable">
+                                        <tr>
+                                            <td class="textsize10bold2" align="left">Please enter the price of your home.
+                                            </td>
+                                            <td align="right">
+
+
+                                                <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                            </td>
+                                            <!--	<TD align="left" rowSpan="5">Amortization Schedule
+					<table id="AmorList" cellspacing="1" cellpadding="0" border="0">
+	<tr>
+		<td><input id="AmorList_0" type="radio" name="AmorList" value="0" checked="checked" tabindex="2" /><label for="AmorList_0">Do Not Display</label></td>
+	</tr><tr>
+		<td><input id="AmorList_1" type="radio" name="AmorList" value="1" tabindex="2" /><label for="AmorList_1">Yearly Summary</label></td>
+	</tr><tr>
+		<td><input id="AmorList_2" type="radio" name="AmorList" value="2" tabindex="2" /><label for="AmorList_2">Monthly Schedule</label></td>
+	</tr>
+</table></TD>  -->
+                                        </tr>
+                                        <tr>
+                                            <td align="center" colspan="3">
+                                                <img height="1" src="/images/mainpx.gif" class="line" class="line" width="490" border="0">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textsize10bold2">Please enter the down payment on your home.
+                                            </td>
+                                            <td align="right">
+
+
+                                                <input name="DownPMT" type="text" value="0" id="DownPMT" tabindex="1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" colspan="3">
+                                                <img height="1" src="/images/mainpx.gif" class="line" class="line" width="490" border="0">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textsize10bold2">Please enter your mortgage length in years.
+                                            </td>
+                                            <td align="right">
+
+
+                                                <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" colspan="3">
+                                                <img height="1" src="/images/mainpx.gif" class="line" class="line" width="490" border="0">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                            </td>
+                                            <td align="right">
+
+
+                                                <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" colspan="3">
+                                                <img height="1" src="/images/mainpx.gif" class="line" class="line" width="490" border="0">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="textsize10bold2" nowrap>Please enter additional principal per payment.
+                                            </td>
+                                            <td align="right">
+
+
+                                                <input name="AddPrincipal" type="text" value="0" id="AddPrincipal" tabindex="1" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">
+                                                <img alt="Community Location" src="/images/bnr_Amortization_Options.gif" class="OldMiniBanner">
+                                            </td>
+                                        </tr>
+                                        <tr valign="top">
+                                            <td valign="middle" colspan="4" width="100%" align="center">
+                                                <input type="radio" name="AmorList" value="0">Do Not Display &nbsp; &nbsp; 
+				&nbsp; &nbsp;
+                                                <input type="radio" name="AmorList" value="1">Yearly Summary 
+				&nbsp; &nbsp; &nbsp; &nbsp;
+                                                <input type="radio" name="AmorList" value="2" checked>Monthly 
+				Schedule
+				<br>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <center><br>
+		<input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
+		
+<br><br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-4">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr valign="top">
+                                            <td colspan="2" valign="top">Paying a little extra on your mortgage each month can significantly shorten the 
+					term of your mortgage, offering substantial savings on interest over the life 
+					of the mortgage. With our calculator function, you can input the desired term 
+					of the mortgage, and you will quickly see how much extra you will need to pay 
+					each month.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_Prepayment_Calculator.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+                                                                        <input name="DownPMT" type="text" value="0" id="DownPMT" tabindex="1" />
+
+                                                                    </td>
+                                                                    <!---->
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your desired payoff period in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="AddPrincipal" type="text" value="20" id="AddPrincipal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4">
+                                                                        <img height="24" alt="Community Location" src="/images/bnr_Amortization_Options.gif">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td valign="middle" colspan="4" width="100%" align="center">
+                                                                        <!--<table id="AmorList" cellspacing="1" cellpadding="0" border="0">
+	<tr>
+		<td><input id="AmorList_0" type="radio" name="AmorList" value="0" checked="checked" tabindex="2" /><label for="AmorList_0">Do Not Display</label></td>
+	</tr><tr>
+		<td><input id="AmorList_1" type="radio" name="AmorList" value="1" tabindex="2" /><label for="AmorList_1">Yearly Summary</label></td>
+	</tr><tr>
+		<td><input id="AmorList_2" type="radio" name="AmorList" value="2" tabindex="2" /><label for="AmorList_2">Monthly Schedule</label></td>
+	</tr>
+</table><br><br></TD>-->
+                                                                        <input type="radio" name="AmorList" value="0">Do Not Display &nbsp; &nbsp; 
+											&nbsp; &nbsp;
+                                                                        <input type="radio" name="AmorList" value="1">Yearly Summary 
+											&nbsp; &nbsp; &nbsp; &nbsp;
+                                                                        <input type="radio" name="AmorList" value="2" checked>Monthly 
+											Schedule
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <center><input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" /></center>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-5">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr valign="top">
+                                            <td colspan="2" valign="top">Your monthly mortgage payment includes more than principal and interest. It 
+					will also include homeowner's insurance, real estate taxes and (in some cases) 
+					private mortgage insurance. To allow you to better plan your monthly budget, We 
+					will calculate your total monthly payment, using your home value to calculate 
+					taxes and insurance.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_monthlypayment.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+                                                                        <input name="DownPMT" type="text" value="0" id="DownPMT" tabindex="1" />
+
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="24" src="/images/bnr_Amortization_Options.gif" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" colspan="3">Amortization Schedule
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td valign="middle" colspan="4" width="100%" align="center">
+                                                                        <!--<table id="AmorList" cellspacing="1" cellpadding="0" border="0">
+	<tr>
+		<td><input id="AmorList_0" type="radio" name="AmorList" value="0" checked="checked" tabindex="2" /><label for="AmorList_0">Do Not Display</label></td>
+	</tr><tr>
+		<td><input id="AmorList_1" type="radio" name="AmorList" value="1" tabindex="2" /><label for="AmorList_1">Yearly Summary</label></td>
+	</tr><tr>
+		<td><input id="AmorList_2" type="radio" name="AmorList" value="2" tabindex="2" /><label for="AmorList_2">Monthly Schedule</label></td>
+	</tr>
+</table><br><br></TD>-->
+                                                                        <input type="radio" name="AmorList" value="0">Do Not Display &nbsp; &nbsp; 
+											&nbsp; &nbsp;
+                                                                        <input type="radio" name="AmorList" value="1">Yearly Summary 
+											&nbsp; &nbsp; &nbsp; &nbsp;
+                                                                        <input type="radio" name="AmorList" value="2" checked>Monthly 
+											Schedule
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4" valign="top">
+                                                                        <br>
+                                                                        We will use a number of assumptions to complete the Monthly Payment analysis. 
+											If you would like to amend these assumptions for your scenario, please click
+											<a id="Edit" href="javascript:{if (typeof(Page_ClientValidate) != 'function' ||  Page_ClientValidate()) __doPostBack('Edit','')} "><u>here</u>.</a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="4" height="23"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <center><input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
+						</center>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-6">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr>
+                                            <td colspan="2" valign="top">In today's unpredictable investment environment, rental property can seem like 
+					a safe haven. We can help you decide whether an investment property really 
+					makes sense for you. Enter a few simple numbers and we'll do the rest.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_rentalproperty.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of the property.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on the property.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="DownPayment" type="text" maxlength="32" id="DownPayment" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the monthly rent you will charge.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rent" type="text" maxlength="32" id="Rent" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the property vacancy factor.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="VFactor" type="text" value="5" maxlength="32" id="VFactor" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the yearly rent increase (%).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="RentIncrease" type="text" value="5" maxlength="32" id="RentIncrease" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <br>
+                                                <br>
+                                                <input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="2" src="/images/btn_submit.gif" alt="Submit" border="0" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <br>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+                                                    <tr>
+                                                        <td colspan="4" valign="top">We will use a number of assumptions to complete the Rental Property analysis. 
+								If you would like to amend these assumptions for your scenario, please click
+								<a id="Edit" href="javascript:{if (typeof(Page_ClientValidate) != 'function' ||  Page_ClientValidate()) __doPostBack('Edit','')} "><u>here</u>.</a>
+                                                            <br>
+                                                            <br>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-7">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr valign="top">
+                                            <td colspan="2" valign="top">The interest rate can make a big difference in your monthly payment. This tool 
+					will calculate the monthly payment for a range of interest payments for a range 
+					of mortgage amounts.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_mortgagetable.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="MinPrin" type="text" maxlength="32" id="MinPrin" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="DownPayment" type="text" maxlength="32" id="DownPayment" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+                                                                        <br>
+                                                                        <input name="Term" type="text" maxlength="32" id="Term" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+                                                                        <br>
+                                                                        <input name="MinRate" type="text" maxlength="32" id="MinRate" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <center><input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="6" src="/images/btn_submit.gif" alt="Submit" border="0" />
+						</center>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-8">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr valign="top">
+                                            <td colspan="2" valign="top">The loan makes a big difference in your monthly payment. This tool will 
+					calculate the monthly payment for a range of loan terms and interest rates. See 
+					which combination works best for your budget.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_termtable.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1" align="center" valign="top">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="DownPayment" type="text" maxlength="32" id="DownPayment" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+                                                                        <br>
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                            <br>
+                                                            <br>
+                                                            <input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" vspace="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-9">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr valign="top">
+                                            <td colspan="2" valign="top">Paying your mortgage bi-weekly instead of monthly can amortize your loan much 
+				more quickly, significantly reducing the interest paid over the life of the 
+				mortgage and resulting in a much earlier payoff. We can show you the 
+				amortization schedule for both the monthly and biweekly options.
+				<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top">
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_biweekly.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1" valign="top">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="DownPayment" type="text" value="0" id="DownPayment" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="3" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <br>
+                                                <br>
+                                                <center><input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
+					</center>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="content-10">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tr>
+                                <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                    <br>
+
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr>
+                                            <td colspan="2" valign="top">The decision to "Rent or Buy" may be the most difficult decision to make when 
+					moving to a new city. Now, we can help make this decision easier. Input some 
+					information on a potential purchase, then give us your rent parameters. We will 
+					quickly calculate the investment value of both alternatives.
+					<br>
+                                                <br>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0">
+
+                                                    <tr>
+                                                        <td>
+                                                            <img height="24" alt="Community Location" src="/images/bnr_rentvbuy.gif">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="TableBodyColor1">
+                                                            <table cellspacing="0" cellpadding="2" width="100%" align="center" border="0">
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the price of your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter the down payment on your home.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="DownPayment" type="text" maxlength="32" id="DownPayment" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your mortgage length in years.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your annual interest rate (ex: 7.8).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your monthly rent.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Rent" type="text" maxlength="32" id="Rent" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your monthly renters insurance.
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="Insurance" type="text" value="20" maxlength="32" id="Insurance" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="center" colspan="3">
+                                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="textsize10bold2">Please enter your yearly rent increase (%).
+                                                                    </td>
+                                                                    <td align="right">
+
+
+                                                                        <input name="RentIncrease" type="text" value="4" maxlength="32" id="RentIncrease" tabindex="2" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <br>
+                                                <br>
+                                                <input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="2" src="/images/btn_submit.gif" alt="Submit" border="0" />
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table cellspacing="1" cellpadding="5" width="100%" border="0" align="center">
+                                                    <tr>
+                                                        <td colspan="4" valign="top">
+                                                            <br>
+                                                            We will use a number of assumptions to complete the Rent vs. Buy analysis. If 
+								you would like to amend these assumptions for your scenario, please click
+								<a id="Edit" href="javascript:{if (typeof(Page_ClientValidate) != 'function' ||  Page_ClientValidate()) __doPostBack('Edit','')} "><u>here</u>.</a>
+                                                            <br>
+                                                            <br>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4" height="23"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td width="30" align=left valign="top" style="margin:0px;padding:0px;">
+                    <div id="right-1">
+                        <a href="javascript:swapTab(1, 1, 1);">
+                            <img src="/images/IncomeRequirement_on.gif" width="18" height="91" alt="Income Requirement Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(1, 2, 2);">
+                            <img src="/images/PreQualification.gif" width="18" height="91" alt="PreQualification Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-2">
+                        <a href="javascript:swapTab(1, 1, 1);">
+                            <img src="/images/IncomeRequirement.gif" width="18" height="91" alt="Income Requirement Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(1, 2, 2);">
+                            <img src="/images/PreQualification_on.gif" width="18" height="91" alt="PreQualification Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-3">
+                        <a href="javascript:swapTab(2, 3, 3);">
+                            <img src="/images/Amortization_on.gif" width="18" height="75" alt="Mortgage Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 4, 4);">
+                            <img src="/images/Prepayment.gif" width="18" height="75" alt="PrePayment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 5, 5);">
+                            <img src="/images/MonthlyPayment.gif" width="18" height="91" alt="Monthly Payment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 6, 6);">
+                            <img src="/images/RentProperty.gif" width="18" height="91" alt="Rental Property Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-4">
+                        <a href="javascript:swapTab(2, 3, 3);">
+                            <img src="/images/Amortization.gif" width="18" height="75" alt="Mortgage Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 4, 4);">
+                            <img src="/images/Prepayment_on.gif" width="18" height="75" alt="PrePayment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 5, 5);">
+                            <img src="/images/MonthlyPayment.gif" width="18" height="91" alt="Monthly Payment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 6, 6);">
+                            <img src="/images/RentProperty.gif" width="18" height="91" alt="Rental Property Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-5">
+                        <a href="javascript:swapTab(2, 3, 3);">
+                            <img src="/images/Amortization.gif" width="18" height="75" alt="Mortgage Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 4, 4);">
+                            <img src="/images/Prepayment.gif" width="18" height="75" alt="PrePayment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 5, 5);">
+                            <img src="/images/MonthlyPayment_on.gif" width="18" height="91" alt="Monthly Payment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 6, 6);">
+                            <img src="/images/RentProperty.gif" width="18" height="91" alt="Rental Property Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-6">
+                        <a href="javascript:swapTab(2, 3, 3);">
+                            <img src="/images/Amortization.gif" width="18" height="75" alt="Mortgage Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 4, 4);">
+                            <img src="/images/Prepayment.gif" width="18" height="75" alt="PrePayment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 5, 5);">
+                            <img src="/images/MonthlyPayment.gif" width="18" height="91" alt="Monthly Payment Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(2, 6, 6);">
+                            <img src="/images/RentProperty_on.gif" width="18" height="91" alt="Rental Property Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-7">
+                        <a href="javascript:swapTab(3, 7, 7);">
+                            <img src="/images/MortgageTable_on.gif" width="18" height="91" alt="Mortgage Table Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(3, 8, 8);">
+                            <img src="/images/TermTable.gif" width="18" height="75" alt="Term Table Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(3, 9, 9);">
+                            <img src="/images/BiWeekly.gif" width="18" height="75" alt="Bi-Weekly Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-8">
+                        <a href="javascript:swapTab(3, 7, 7);">
+                            <img src="/images/MortgageTable.gif" width="18" height="91" alt="Mortgage Table Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(3, 8, 8);">
+                            <img src="/images/TermTable_on.gif" width="18" height="75" alt="Term Table Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(3, 9, 9);">
+                            <img src="/images/BiWeekly.gif" width="18" height="75" alt="Bi-Weekly Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-9">
+                        <a href="javascript:swapTab(3, 7, 7);">
+                            <img src="/images/MortgageTable.gif" width="18" height="91" alt="Mortgage Table Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(3, 8, 8);">
+                            <img src="/images/TermTable.gif" width="18" height="75" alt="Term Table Calculator" border="0" >
+                        </a>
+                        <br>
+                        <a href="javascript:swapTab(3, 9, 9);">
+                            <img src="/images/BiWeekly_on.gif" width="18" height="75" alt="Bi-Weekly Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                    <div id="right-10">
+                        <a href="javascript:swapTab(4, 10, 10);">
+                            <img src="/images/RentVsBuy_on.gif" width="18" height="75" alt="Rent Vs Buy Calculator" border="0" >
+                        </a>
+                        <br>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

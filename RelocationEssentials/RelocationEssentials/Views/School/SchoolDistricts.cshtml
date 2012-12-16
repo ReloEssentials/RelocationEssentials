@@ -1,0 +1,80 @@
+﻿@model RelocationEssentials.Models.SchoolDisplayModel
+
+@{
+    ViewBag.Title = "SchoolDistricts";
+}
+
+@if (!Model.District && Model.PublicBool && Model.Public.Count != 0)
+{
+    <img src="/images/bnr_publicschool.gif" />
+    
+    foreach (RelocationEssentials.Models.DataModel dm in Model.Public)
+     {
+         <div>
+             <table>
+                 <tr>
+                     <td>
+                         <a href="#">@dm.Name</a>
+                         @dm.Attributes.Where(x => x.Name.Equals("Street")).ToList()[0].Value
+                         <br />
+                         @dm.Attributes.Where(x => x.Name.Equals("City")).ToList()[0].Value,
+                         &nbsp;
+                         @dm.Attributes.Where(x => x.Name.Equals("StateNM")).ToList()[0].Value
+                         &nbsp;
+                         @dm.Attributes.Where(x => x.Name.Equals("Zip")).ToList()[0].Value
+                     </td>
+                     <td>
+                         @dm.Attributes.Where(x => x.Name.Equals("Phone")).ToList()[0].Value
+                         <br />
+                         GRADE SPAN: @dm.Attributes.Where(x => x.Name.Equals("LowGrade")).ToList()[0].Value
+                         &nbsp;
+                         -
+                         &nbsp;
+                         @dm.Attributes.Where(x => x.Name.Equals("HighGrade")).ToList()[0].Value
+                     </td>
+                 </tr>
+             </table>
+         </div>
+     }
+}
+
+@if (!Model.District && Model.PrivateBool && Model.Private.Count != 0)
+{
+    <img src="/images/bnr_privateschool.gif" />
+    
+    foreach (RelocationEssentials.Models.DataModel dm in Model.Public)
+     {
+         <div>
+             <table border="0">
+                 <tr>
+                     <td>
+                         <a href="#">@dm.Name</a>
+                         @dm.Attributes.Where(x => x.Name.Equals("Street")).ToList()[0].Value
+                         <br />
+                         @dm.Attributes.Where(x => x.Name.Equals("City")).ToList()[0].Value,
+                         &nbsp;
+                         @dm.Attributes.Where(x => x.Name.Equals("StateNM")).ToList()[0].Value
+                         &nbsp;
+                         @dm.Attributes.Where(x => x.Name.Equals("Zip")).ToList()[0].Value
+                     </td>
+                     <td>
+                         @dm.Attributes.Where(x => x.Name.Equals("Phone")).ToList()[0].Value
+                         <br />
+                         GRADE SPAN: @dm.Attributes.Where(x => x.Name.Equals("LowGrade")).ToList()[0].Value
+                         &nbsp;
+                         -
+                         &nbsp;
+                         @dm.Attributes.Where(x => x.Name.Equals("HighGrade")).ToList()[0].Value
+                     </td>
+                 </tr>
+             </table>
+         </div>
+     }
+}
+
+@if (Model.District && Model.PublicBool && Model.Public.Count != 0)
+{
+    <img src="/images/bnr_publicschooldistrict.gif" />
+    
+    //to be worked on
+}
