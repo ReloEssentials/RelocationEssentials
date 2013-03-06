@@ -1,11 +1,16 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
+<script type="text/javascript">
+    function resizeFrame() {
+        document.getElementById('schoolFrame1').style.height = document.getElementById('schoolFrame1').contentWindow.document.body.scrollHeight + "px";
+    }
+</script>
 
 <div style="width:560px">
     <div>
         <img src="/images/icon_schools.gif" />
         <img src="/images/title_schoolreportcard.gif" />
     </div>
-    <iframe "schoolFrame1" frameborder="0" style="width:100%"></iframe>
+    <iframe src="School/ChooseLocation" id="schoolFrame1" frameborder="0" style="width:100%" scrolling="no" onload="javascript:resizeFrame()"></iframe>
 </div>

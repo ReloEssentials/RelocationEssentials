@@ -110,18 +110,26 @@
   <ItemGroup>
     <Compile Include="Controllers\CalculatorsController.cs" />
     <Compile Include="Controllers\CommunityComparisonController.cs" />
+    <Compile Include="Controllers\CommunityExplorerController.cs" />
     <Compile Include="Controllers\CostOfLivingController.cs" />
     <Compile Include="Controllers\CrimeController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MovingNetworkController.cs" />
     <Compile Include="Controllers\PlateController.cs" />
+    <Compile Include="Controllers\SalaryAnalyzerController.cs" />
     <Compile Include="Controllers\SchoolController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Attribute.cs" />
+    <Compile Include="Models\CCModel.cs" />
+    <Compile Include="Models\CoLModel.cs" />
+    <Compile Include="Models\CountyModel.cs" />
     <Compile Include="Models\DataModel.cs" />
+    <Compile Include="Models\PlaceModel.cs" />
     <Compile Include="Models\SchoolDisplayModel.cs" />
+    <Compile Include="Models\StateModel.cs" />
+    <Compile Include="Models\ZipModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +257,16 @@
     <Content Include="Views\School\CompareXCurricula.cshtml" />
     <Content Include="Views\School\Index.cshtml" />
     <Content Include="Views\School\ReportCard.cshtml" />
+    <Content Include="Views\School\ChooseLocation.cshtml" />
+    <Content Include="Views\CostOfLiving\Index.cshtml" />
+    <Content Include="Views\CostOfLiving\Display.cshtml" />
+    <Content Include="Views\SalaryAnalyzer\Index.cshtml" />
+    <Content Include="Views\SalaryAnalyzer\InputTwo.cshtml" />
+    <Content Include="Views\SalaryAnalyzer\Display.cshtml" />
+    <Content Include="Views\CommunityExplorer\Index.cshtml" />
+    <Content Include="Views\CommunityExplorer\Display.cshtml" />
+    <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Views\Map\StateDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -272,7 +290,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>17254</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:55718/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

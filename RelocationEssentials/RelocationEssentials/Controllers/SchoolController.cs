@@ -23,73 +23,56 @@ namespace RelocationEssentials.Controllers
             return View();
         }
 
-        public ActionResult SchoolDistricts(String State, String City, String County, String School, String Zip, int Miles, Boolean Public, Boolean Private)
+        public ActionResult SchoolDistricts(String State, String Type, String Value, String Zip, int Miles)
         {
-            DocumentStore Store = new DocumentStore() { ConnectionStringName = "Raven", DefaultDatabase = "School" };
+            /*DocumentStore Store = new DocumentStore() { ConnectionStringName = "Raven", DefaultDatabase = "School" };
             Store.Initialize();
-
+            
             SchoolDisplayModel model = new SchoolDisplayModel();
             using (var session = Store.OpenSession())
             {
-                if (City != null)
+                if (Type.Equals("City"))
                 {
-                    model.Public = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public") && x.Attributes.Find(equalsNameCity).Name.Equals(City)).ToList();
-                    model.Private = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private") && x.Attributes.Find(equalsNameCity).Name.Equals(City)).ToList();
+                    model.Public = session.Query<DataModel>().ToList();
+                    model.Public = model.Public.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public")).Where(x => x.Attributes.Find(equalsNameCity).Name.Equals(Value)).ToList();
+                    model.Private = session.Query<DataModel>().ToList();
+                    model.Private = model.Private.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private")).Where(x => x.Attributes.Find(equalsNameCity).Name.Equals(Value)).ToList();
                     model.District = false;
                 }
-                else if (County != null)
+                else if (Type.Equals("County"))
                 {
-                    model.Public = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public") && x.Attributes.Find(equalsNameCounty).Name.Equals(County)).ToList();
-                    model.Private = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private") && x.Attributes.Find(equalsNameCounty).Name.Equals(County)).ToList();
+                    model.Public = session.Query<DataModel>().ToList();
+                    model.Public = model.Public.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public")).Where(x => x.Attributes.Find(equalsNameCounty).Name.Equals(Value)).ToList();
+                    model.Private = session.Query<DataModel>().ToList();
+                    model.Private = model.Private.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private")).Where(x => x.Attributes.Find(equalsNameCounty).Name.Equals(Value)).ToList();
                     model.District = false;
                 }
-                else if (School != null)
+                else if (Type.Equals("School"))
                 {
-                    model.Public = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public") && x.Attributes.Find(equalsName).Name.Equals(School)).ToList();
-                    model.Private = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private") && x.Attributes.Find(equalsName).Name.Equals(School)).ToList();
+                    model.Public = session.Query<DataModel>().ToList();
+                    model.Public = model.Public.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public")).Where(x => x.Attributes.Find(equalsName).Name.Equals(Value)).ToList();
+                    model.Private = session.Query<DataModel>().ToList();
+                    model.Private = model.Private.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private")).Where(x => x.Attributes.Find(equalsName).Name.Equals(Value)).ToList();
                     model.District = false;
                 }
                 else if (Zip != null)
                 {
-                    model.Public = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public") && x.Attributes.Find(equalsNameZip).Name.Equals(Zip)).ToList();
-                    model.Private = session.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private") && x.Attributes.Find(equalsNameZip).Name.Equals(Zip)).ToList();
+                    model.Public = session.Query<DataModel>().ToList();
+                    model.Public = model.Public.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Public")).Where(x => x.Attributes.Find(equalsNameZip).Name.Equals(Zip)).ToList();
+                    model.Private = session.Query<DataModel>().ToList();
+                    model.Private = model.Private.Where(x => x.Attributes.Find(equalsNamePublicPrivate).Name.Equals("Private")).Where(x => x.Attributes.Find(equalsNameZip).Name.Equals(Zip)).ToList();
                     model.District = true;
                 }
                 else
                 {
                     return RedirectToAction("ChooseLocation");
                 }
-                model.PublicBool = Public;
-                model.PrivateBool = Private;
+                model.PublicBool = (Request.Form["Public"] != null);
+                model.PrivateBool = (Request.Form["Private"] != null);
                 model.Miles = Miles;
-            }
+            }*/
 
-            return View(model);
-        }
-
-        private bool equalsNameCity(Models.Attribute a)
-        {
-            return a.Name.Equals("City");
-        }
-
-        private bool equalsNameCounty(Models.Attribute a)
-        {
-            return a.Name.Equals("County");
-        }
-
-        private bool equalsName(Models.Attribute a)
-        {
-            return a.Name.Equals("Name");
-        }
-
-        private bool equalsNameZip(Models.Attribute a)
-        {
-            return a.Name.Equals("Zip");
-        }
-
-        private bool equalsNamePublicPrivate(Models.Attribute a)
-        {
-            return a.Name.Equals("PublicPrivate");
+            return View();//model);
         }
 
         public ActionResult ReportCard()

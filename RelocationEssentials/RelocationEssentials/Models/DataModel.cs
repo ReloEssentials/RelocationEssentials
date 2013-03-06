@@ -8,13 +8,16 @@ namespace RelocationEssentials.Models
     public class DataModel
     {
         public String Code { get; set; }
-        public String Name { get; set; }
-        public List<Attribute> Attributes { get; set; }
+        public Dictionary<String, String> Attributes { get; set; }
 
-        public DataModel(String Code)
+        public DataModel()
         {
-            this.Code = Code;
-            Attributes = new List<Attribute>();
+            Attributes = new Dictionary<String, String>();
+        }
+
+        public DataModel(Dictionary<String, String> Attributes)
+        {
+            this.Attributes = Attributes;
         }
     }
 }

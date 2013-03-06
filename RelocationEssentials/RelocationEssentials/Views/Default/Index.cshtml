@@ -4,12 +4,7 @@
 
 <script type="text/javascript">
     window.onload = function () {
-        resizeFrame(document.getElementById('frame'));
         swapPage('Plate');
-    }
-
-    function resizeFrame(f) {
-        f.style.height = f.contentWindow.document.body.scrollHeight + "px";
     }
 
     function swapPage(page) {
@@ -17,7 +12,7 @@
             document.getElementById('tabs').style.display = 'none';
         else
             document.getElementById('tabs').style.display = 'block';
-        document.getElementById('frame').src = page;
+        $('#page_display').load(page);
     }
 
     function MM_swapImgRestore() { //v3.0
@@ -56,13 +51,13 @@
 				<TR>
 					<TD id="_ctl1_CostOfLiving" valign="bottom"><A 
       onmouseover="MM_swapImage('topnav_col','','/images/nav_colx10_on.gif',1)" 
-      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/salary/col.aspx"><IMG 
+      onmouseout="MM_swapImgRestore()" href="javascript:swapPage('CostOfLiving');"><IMG 
       src="/images/nav_colx10.gif" border="0" 
       name="topnav_col"></A></TD>
 
 					<TD id="_ctl1_Schools" valign="bottom"><A 
       onmouseover="MM_swapImage('topnav_schools','','/images/nav_schoolsx10_on.gif',1)" 
-      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/schools/schoolus.aspx"><IMG 
+      onmouseout="MM_swapImgRestore()" href="javascript:swapPage('School');"><IMG 
       src="/images/nav_schoolsx10.gif" border="0" 
       name="topnav_schools"></A></TD>
 
@@ -76,20 +71,20 @@
 					<TD id="_ctl1_SalaryAnalyzer" valign="bottom"><A 
       onmouseover="MM_swapImage('topnav_salary','','/images/nav_salaryx10_on.gif',1)" 
       onmouseout="MM_swapImgRestore()" 
-      href="/aff/www/tools/salary/salaryanalyzer.aspx"><IMG 
+      href="javascript:swapPage('SalaryAnalyzer');"><IMG 
       src="/images/nav_salaryx10.gif" border="0" 
       name="topnav_salary"></A></TD>
 
 					<TD id="_ctl1_Crime" valign="bottom"><A 
       onmouseover="MM_swapImage('topnav_crime','','/images/nav_crimex10_on.gif',1)" 
       onmouseout="MM_swapImgRestore()" 
-      href="/aff/www/tools/crime/crime.aspx"><IMG 
+      href="javascript:swapPage('Crime');"><IMG 
       src="/images/nav_crimex10.gif" border="0" 
       name="topnav_crime"></A></TD>
 
 					<TD id="_ctl1_CommunityExplorer" valign="bottom"><A 
       onmouseover="MM_swapImage('topnav_explorer','','/images/nav_explorerx10_on.gif',1)" 
-      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/explorer/index.aspx"><IMG 
+      onmouseout="MM_swapImgRestore()" href="javascript:swapPage('CommunityExplorer');"><IMG 
       src="/images/nav_explorerx10.gif" border="0" 
       name="topnav_explorer"></A></TD>
 
@@ -101,14 +96,14 @@
 
 					<TD id="_ctl1_Calculators" valign="bottom"><A 
       onmouseover="MM_swapImage('topnav_calculators','','/images/nav_calculatorsx10_on.gif',1)" 
-      onmouseout="MM_swapImgRestore()" href="/aff/www/tools/calculators/amortization.aspx"><IMG 
+      onmouseout="MM_swapImgRestore()" href="javascript:swapPage('Calculators');"><IMG 
       src="/images/nav_calculatorsx10.gif" 
       border="0" name="topnav_calculators"></A></TD>
 
 					<TD id="_ctl1_MoveNetwork" valign="bottom"><A 
       onmouseover="MM_swapImage('topnav_moving','','/images/nav_movingx10_on.gif',1)" 
       onmouseout="MM_swapImgRestore()" 
-      href="/aff/www/tools/forms/moving.aspx"><IMG 
+      href="javascript:swapPage('MovingNetwork');"><IMG 
       src="/images/nav_movingx10.gif" border="0" 
       name="topnav_moving"></A></TD>
 
@@ -128,5 +123,4 @@
 
 </div>
 <div style="width:600px; margin-left:auto; margin-right:auto;" id="page_display">
-    <iframe src="Plate" id="frame" style="width:100%;" frameBorder="0"></iframe>
 </div>

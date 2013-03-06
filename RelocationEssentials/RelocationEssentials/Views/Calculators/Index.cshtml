@@ -2,20 +2,204 @@
     ViewBag.Title = "Index";
 }
 <script type="text/javascript">
-    window.onload = function () {
+    var principal = "", interest = "", length = "", dp = "0", income = "", addPrincipal = "";
+
+    $(function () {
         swapTab(1, 1, 1);
-    }
+    });
+
     function swapTab(tab, content, right) {
+        if (content == 1)
+            set1();
+        else if (content == 2)
+            set2();
+        else if (content == 3)
+            set3();
+        else if (content == 11)
+            set11();
+        else if (content == 12)
+            set12();
+        else if (content == 13)
+            set13();
         for (var i = 1; i < 5; i++) {
             document.getElementById('tabs-' + i).style.display = 'none';
         }
-        for (var i = 1; i < 11; i++) {
+        for (var i = 1; i < 14; i++) {
             document.getElementById('content-' + i).style.display = 'none';
-            document.getElementById('right-' + i).style.display = 'none';
+            if(i < 11)
+                document.getElementById('right-' + i).style.display = 'none';
         }
         document.getElementById('tabs-' + tab).style.display = 'block';
         document.getElementById('content-' + content).style.display = 'block';
         document.getElementById('right-' + right).style.display = 'block';
+    }
+
+    function set1() {
+        document.getElementById('Principal1').value = principal;
+        document.getElementById('DownPMT1').value = dp;
+        document.getElementById('Length1').value = length;
+        document.getElementById('Rate1').value = interest;
+    }
+
+    function set2() {
+        document.getElementById('Income2').value = income;
+        document.getElementById('DownPMT2').value = dp;
+        document.getElementById('Length2').value = length;
+        document.getElementById('Rate2').value = interest;
+    }
+
+    function set3() {
+        document.getElementById('Principal3').value = principal;
+        document.getElementById('DownPMT3').value = dp;
+        document.getElementById('Length3').value = length;
+        document.getElementById('Rate3').value = interest;
+        document.getElementById('AddPrincipal3').value = addPrincipal;
+    }
+
+    function set11() {
+        principal = document.getElementById('Principal1').value;
+        dp = document.getElementById('DownPMT1').value;
+        length = document.getElementById('Length1').value;
+        interest = document.getElementById('Rate1').value;
+
+        document.getElementById('PrincipalLabel1').innerHTML = "$" + addCommas(principal);
+        document.getElementById('DPLabel1').innerHTML = "$" + addCommas(dp);
+        document.getElementById('LengthLabel1').innerHTML = addCommas(length) + " years";
+        document.getElementById('RateLabel1').innerHTML = interest + "%";
+
+        var monthlyInterest = interest/1200;
+        var numOfPayments = length * 12;
+        var mortgage = (principal - dp) * (monthlyInterest / (1 - Math.pow(1 + monthlyInterest, -numOfPayments)));
+        document.getElementById('PaymentLabel1').innerHTML = "$" + addCommas(Math.round(mortgage));
+
+        document.getElementById('TotalMonthlyLabel1').innerHTML = "$" + addCommas((mortgage + 2200/12 + 1000/12).toFixed(0));
+
+        document.getElementById('Income1').innerHTML = "$" + addCommas((((mortgage + 2200/12 + 1000/12) / .28) * 12).toFixed(0));
+    }
+
+    function set12() {
+        income = document.getElementById('Income2').value;
+        dp = document.getElementById('DownPMT2').value;
+        length = document.getElementById('Length2').value;
+        interest = document.getElementById('Rate2').value;
+
+        document.getElementById('PrincipalLabel2').innerHTML = "$" + addCommas(income);
+        document.getElementById('LengthLabel2').innerHTML = length + " years";
+        document.getElementById('RateLabel2').innerHTML = interest + "%";
+        document.getElementById('DPLabel2').innerHTML = "$" + addCommas(dp);
+
+        var mortgage = income / 12 * .28;
+        document.getElementById('PaymentLabel2').innerHTML = "$" + addCommas(Math.round(mortgage));
+
+        document.getElementById('RETaxLabel2').innerHTML = "$2,200";
+        document.getElementById('HomeINSLabel2').innerHTML = "1,000";
+
+        var monthly = mortgage + 2200 / 12 + 1000 / 12;
+        document.getElementById('TotalMonthlyLabel2').innerHTML = "$" + addCommas(monthly.toFixed(0));
+
+        var monthlyInterest = interest / 1200;
+        var numOfPayments = length * 12;
+        var PMT = mortgage - 2200 / 12 - 1000 / 12;
+        var prin = PMT / (monthlyInterest / (1 - (Math.pow((1 + monthlyInterest), -numOfPayments))));
+        var price = prin + dp;
+        document.getElementById('PriceLabel2').innerHTML = "$" + addCommas(Math.round(price));
+    }
+
+    function set13() {
+        principal = document.getElementById('Principal3').value;
+        dp = document.getElementById('DownPMT3').value;
+        length = document.getElementById('Length3').value;
+        interest = document.getElementById('Rate3').value;
+        addPrincipal = document.getElementById('AddPrincipal3').value;
+
+        document.getElementById('PrincipalLabel13').innerHTML = "$" + addCommas(principal);
+        document.getElementById('DPLabel13').innerHTML = "$" + addCommas(dp);
+        document.getElementById('LengthLabel13').innerHTML = length + " years";
+        document.getElementById('RateLabel13').innerHTML = interest + "%";
+        document.getElementById('AddPrincipalLabel13').innerHTML = "$" + addCommas(addPrincipal);
+
+        var show = (document.getElementById('AmorList30').checked) ? 0 : (document.getElementById('AmorList31').checked) ? 1 : 2;
+
+        var monthlyInterest = interest / 1200;
+        var numOfPayments = length * 12;
+        var monthlyPayment = (principal - dp) * (monthlyInterest / (1 - (Math.pow((1 + monthlyInterest), -numOfPayments))));
+        var adjusted = monthlyPayment + Number(addPrincipal);
+
+        var d = new Date();
+        var MI = 0;
+        var MP = 0;
+        var YearTotalI = 0;
+        var YearTotalP = 0;
+
+        var adjustedPrincipal = principal - dp;
+
+        var row = 0;
+
+        var html = "";
+
+        if (show == 1)
+            html += "<table width=\"100%\"><tr style=\"background-color:blue; text:#FFC; text-align:center\"><th>Year</th><th>Total Interest</th><th>Total Principal</th><th>Remaining Balance</th></tr>";
+
+        while (adjustedPrincipal > .01) {
+            MI = adjustedPrincipal * monthlyInterest;
+            if ((adjustedPrincipal + MI) > adjusted) {
+                MP = adjusted - MI;
+            }
+            else {
+                //Last payment
+                adjusted = adjustedPrincipal + MI;
+                MP = adjustedPrincipal;
+            }
+            adjustedPrincipal -= MP;
+            if (d.getMonth() == 11) {
+                d.setMonth(0, 1);
+                d.setFullYear(d.getFullYear() + 1);
+            }
+            else
+                d.setMonth(d.getMonth() + 1, 1);
+            switch (show) {
+                case 0:
+                    break;
+                case 1:
+                    if (d.getMonth() == 11) {
+                        if (row % 2 == 0)
+                            html += "<tr style=\"background-color:#FFC; text-align:right\"><td>" + d.getFullYear() + "</td><td>$" + addCommas(YearTotalI.toFixed(0)) + "</td><td>$" + addCommas(YearTotalP.toFixed(0)) + "</td><td>$" + addCommas(adjustedPrincipal.toFixed(0)) + "</td></tr>\n";
+                        else
+                            html += "<tr style=\"text-align:right\"><td>" + d.getFullYear() + "</td><td>$" + addCommas(YearTotalI.toFixed(0)) + "</td><td>$" + addCommas(YearTotalP.toFixed(0)) + "</td><td>$" + addCommas(adjustedPrincipal.toFixed(0)) + "</td></tr>\n";
+                        row++;
+                    }
+                    break;
+                case 2:
+                    if (d.getMonth() == 1) {
+                        html += "<table width=\"100%\">\n<tr style=\"background-color:blue; color:#FC6; text-align:center\"><th>Payment Month</th><th>Payment</th><th>Interest</th><th>Principal</th><th>Remaining Balance</th></tr>\n";
+                    }
+                    if (row % 2 == 0)
+                        html += "<tr style=\"background-color:#FFC; text-align:right\"><td>" + (d.getMonth() == 0 ? 12 : d.getMonth()) + "/" + d.getDate() + "/" + d.getFullYear() + "</td><td>$" + addCommas(Math.round(adjusted)) + "</td><td>$" + addCommas(MI.toFixed(0)) + "</td><td>$" + addCommas(MP.toFixed(0)) + "</td><td>$" + addCommas(adjustedPrincipal.toFixed(0)) + "</td></tr>\n";
+                    else
+                        html += "<tr style=\"text-align:right\"><td>" + (d.getMonth() == 0 ? 12 : d.getMonth()) + "/" + d.getDate() + "/" + d.getFullYear() + "</td><td>$" + addCommas(Math.round(adjusted)) + "</td><td>$" + addCommas(MI.toFixed(0)) + "</td><td>$" + addCommas(MP.toFixed(0)) + "</td><td>$" + addCommas(adjustedPrincipal.toFixed(0)) + "</td></tr>\n";
+                    
+                    if (d.getMonth() == 0 || adjustedPrincipal == 0) {
+                        html += "<tr><td colspan=5><center><img src=\"/images/mainpx.gif\" width=\"470px\" height=\"1px\"\"></center></td></tr>\n"
+                            + "<tr style=\"color:blue\"><td>" + (d.getFullYear()-1) + " Totals</td><td style=\"text-align:right\">$" + addCommas((12 * adjusted).toFixed(0)) + "</td><td style=\"text-align:right\">$" + addCommas(YearTotalI.toFixed(0)) + "</td><td style=\"text-align:right\">$" + addCommas(YearTotalP.toFixed(0)) + "</td><td style=\"text-align:right\">$" + addCommas(adjustedPrincipal.toFixed(0)) + "</td></tr>\n</table>\n</br>\n<br/>\n";
+                    }
+                    
+                    row++;
+            }
+            YearTotalI += MI;
+            YearTotalP += MP;
+        }
+
+        if (show == 1)
+            html += "</table>\n";
+
+        document.getElementById('AmortGraphs13').innerHTML = html;
+        
+    }
+
+    function addCommas(str) {
+        return (str + "").replace(/\b(\d+)((\.\d+)*)\b/g, function (a, b, c) {
+            return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+        });
     }
 </script>
 <div style="width:550px; margin-left:auto; margin-right:auto;">
@@ -89,7 +273,7 @@
                 <img src="/images/RentTop_on.gif" width="75" height="18" alt="Get the full picture surrounding renting versus buying." border="0">
             </a>
         </div>
-        <table style="margin-top:-4px">
+        <table style="margin-top:-4px" >
             <tr>
                 <td style="margin:0px;padding:0px;border:solid 1px black;">
                     <div id="content-1">
@@ -126,7 +310,7 @@
                                                                     <td align="right">
 
 
-                                                                        <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                                        <input name="Principal" type="text" maxlength="32" id="Principal1" tabindex="1" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -139,7 +323,7 @@
                                                                     </td>
                                                                     <td align="right">
 
-                                                                        <input name="DownPMT" type="text" value="0" id="DownPMT" tabindex="1" />
+                                                                        <input name="DownPMT" type="text" id="DownPMT1" tabindex="1" />
 
                                                                     </td>
                                                                 </tr>
@@ -154,7 +338,7 @@
                                                                     <td align="right">
 
 
-                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                        <input name="Length" type="text" maxlength="32" id="Length1" tabindex="1" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -168,14 +352,14 @@
                                                                     <td align="right">
 
 
-                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate1" tabindex="1" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="2" align="center">
                                                                         <br>
                                                                         <br>
-                                                                        <center><input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" /></center>
+                                                                        <center><a href="javascript:swapTab(1, 11, 1);"><img name="SubmitButton" id="SubmitButton1" src="/images/btn_submit.gif" alt="Submit" border="0" /></a></center>
                                                                         <br>
                                                                         <br>
                                                                     </td>
@@ -202,6 +386,152 @@
                                     <br>
                                 </td>
                             </tr>
+                        </table>
+                    </div>
+                    <div id="content-11">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tbody>
+                                <tr>
+                                    <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                        <br>
+
+                                        <img height="24" alt="Community Location" src="/images/bnr_incomerequirement.gif">
+                                        <table id="Table2" cellspacing="0" cellpadding="2" width="100%" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="textsize2bold" align="center" colspan="2"><b>
+                                                        <br>
+                                                        Initial Values</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Home Price<br>
+                                                    </td>
+                                                    <td align="right"><span id="PrincipalLabel1" >$20,000</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Down<br>
+                                                        Payment<br>
+                                                    </td>
+                                                    <td align="right"><span id="DPLabel1">$2,000</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td>Length<br>
+                                                    </td>
+                                                    <td align="right"><span id="LengthLabel1">40 years</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td>Interest Rate<br>
+                                                    </td>
+                                                    <td align="right"><span id="RateLabel1">3.40%</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td class="textsize2bold" align="center" colspan="2">
+                                                        <br>
+                                                        <b>Summary Values</b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mortgage Payment<br>
+                                                    </td>
+                                                    <td align="right"><span id="PaymentLabel1">$69</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td>Annual Real Estate Tax<br>
+                                                    </td>
+                                                    <td align="right"><span id="RETaxLabel1">$2,200</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td>Homeowner's Insurance<br>
+                                                    </td>
+                                                    <td align="right"><span id="HomeINSLabel1">$1,000</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Total Monthly Payment</b>
+                                                    </td>
+                                                    <td class="textsize2bold" align="right"><span id="TotalMonthlyLabel1">$335</span>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Total Annual Income Required</b>
+                                                    </td>
+                                                    <td class="textsize2bold" align="right"><span id="Income1">$14,371</span>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <center><br>
+			<input type="image" name="BackButton" onclick="javascript: swapTab(1, 1, 1);" id="BackButton1" src="/images/btn_edit.gif" alt="Edit" border="0"></center>
+
+
+
+                                        <br>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                     <div id="content-2">
@@ -238,7 +568,7 @@
                                                                     <td align="right">
 
 
-                                                                        <input name="Income" type="text" maxlength="32" id="Income" tabindex="1" />
+                                                                        <input name="Income" type="text" maxlength="32" id="Income2" tabindex="1" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -252,7 +582,7 @@
                                                                     <td align="right">
 
 
-                                                                        <input name="DownPMT" type="text" id="DownPMT" tabindex="1" />
+                                                                        <input name="DownPMT" type="text" id="DownPMT2" tabindex="1" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -266,7 +596,7 @@
                                                                     <td align="right">
 
 
-                                                                        <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                                        <input name="Length" type="text" maxlength="32" id="Length2" tabindex="1" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -280,14 +610,14 @@
                                                                     <td align="right">
 
 
-                                                                        <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                                        <input name="Rate" type="text" maxlength="32" id="Rate2" tabindex="1" />
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="4" align="center">
                                                                         <center><br>
 												<br>
-												<input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
+												<a href="javascript:swapTab(1, 12, 2);"><img name="SubmitButton" id="SubmitButton2" src="/images/btn_submit.gif" alt="Submit" border="0" /></a>
 												<br>
 												<br>
 											</center>
@@ -317,6 +647,119 @@
                             </tr>
                         </table>
                     </div>
+                    <div id="content-12">
+                        <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
+                            <tbody>
+                                <tr>
+                                    <td class="TableBodyColor1" id="CalculatorWrapper" valign="top">
+                                        <br>
+
+                                        <img height="24" alt="Community Location" src="/images/bnr_prequalify.gif">
+
+                                        <table id="Table2" cellspacing="0" cellpadding="2" width="100%" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="textsize2bold" align="center" colspan="2">Initial Values</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Annual Income<br>
+                                                    </td>
+                                                    <td align="right"><span id="PrincipalLabel2">$20,000</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Length<br>
+                                                    </td>
+                                                    <td align="right"><span id="LengthLabel2">40 years</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Interest Rate<br>
+                                                    </td>
+                                                    <td align="right"><span id="RateLabel2">3.40%</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="textsize2bold" align="center" colspan="2">
+                                                        <br>
+                                                        Summary Values</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Down Payment<br>
+                                                    </td>
+                                                    <td align="right"><span id="DPLabel2">$2,000</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mortgage Payment<br>
+                                                    </td>
+                                                    <td align="right"><span id="PaymentLabel2">$467</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Annual Real Estate Tax<br>
+                                                    </td>
+                                                    <td align="right"><span id="RETaxLabel2">$2,200</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Homeowner's Insurance<br>
+                                                    </td>
+                                                    <td align="right"><span id="HomeINSLabel2">$1,000</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Total Monthly Payment</b></td>
+                                                    <td class="textsize2bold" align="right"><span id="TotalMonthlyLabel2">$733</span></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" colspan="3">
+                                                        <img height="1" src="/images/mainpx.gif" class="line" width="470" border="0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Maximum Home Price</b></td>
+                                                    <td class="textsize2bold" align="right"><span id="PriceLabel2">$54,436</span></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <center>
+						<input type="image" name="BackButton" onclick="javascript: swapTab(1, 2, 2);" id="BackButton2" src="/images/btn_edit.gif" alt="Edit" border="0"></center>
+
+
+
+                                        <br>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div id="content-3">
                         <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">
                             <tr>
@@ -340,7 +783,7 @@
                                             <td align="right">
 
 
-                                                <input name="Principal" type="text" maxlength="32" id="Principal" tabindex="1" />
+                                                <input name="Principal" type="text" maxlength="32" id="Principal3" tabindex="1" />
                                             </td>
                                             <!--	<TD align="left" rowSpan="5">Amortization Schedule
 					<table id="AmorList" cellspacing="1" cellpadding="0" border="0">
@@ -364,7 +807,7 @@
                                             <td align="right">
 
 
-                                                <input name="DownPMT" type="text" value="0" id="DownPMT" tabindex="1" />
+                                                <input name="DownPMT" type="text" value="0" id="DownPMT3" tabindex="1" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -378,7 +821,7 @@
                                             <td align="right">
 
 
-                                                <input name="Length" type="text" maxlength="32" id="Length" tabindex="1" />
+                                                <input name="Length" type="text" maxlength="32" id="Length3" tabindex="1" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -392,7 +835,7 @@
                                             <td align="right">
 
 
-                                                <input name="Rate" type="text" maxlength="32" id="Rate" tabindex="1" />
+                                                <input name="Rate" type="text" maxlength="32" id="Rate3" tabindex="1" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -406,7 +849,7 @@
                                             <td align="right">
 
 
-                                                <input name="AddPrincipal" type="text" value="0" id="AddPrincipal" tabindex="1" />
+                                                <input name="AddPrincipal" type="text" value="0" id="AddPrincipal3" tabindex="1" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -416,23 +859,93 @@
                                         </tr>
                                         <tr valign="top">
                                             <td valign="middle" colspan="4" width="100%" align="center">
-                                                <input type="radio" name="AmorList" value="0">Do Not Display &nbsp; &nbsp; 
+                                                <input type="radio" name="AmorList" id="AmorList30" value="0">Do Not Display &nbsp; &nbsp; 
 				&nbsp; &nbsp;
-                                                <input type="radio" name="AmorList" value="1">Yearly Summary 
+                                                <input type="radio" name="AmorList" id="AmorList31" value="1">Yearly Summary 
 				&nbsp; &nbsp; &nbsp; &nbsp;
-                                                <input type="radio" name="AmorList" value="2" checked>Monthly 
+                                                <input type="radio" name="AmorList" id="AmorList32" value="2" checked>Monthly 
 				Schedule
 				<br>
                                             </td>
                                         </tr>
                                     </table>
                                     <center><br>
-		<input type="image" name="SubmitButton" onclick="if (typeof (Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
+		<input type="image" name="SubmitButton" onclick="javascript: swapTab(2, 13, 2);" language="javascript" id="SubmitButton" tabindex="3" src="/images/btn_submit.gif" alt="Submit" border="0" />
 		
 <br><br>
                                 </td>
                             </tr>
                         </table>
+                    </div>
+                    <div id="content-13" style="width:550px">
+                        <img height="24" alt="Community Location" src="/images/bnr_Amortization.gif" class="OldMiniBanner">
+                        <table id="Table2" cellspacing="0" cellpadding="2" border="0" width="550px">
+                            <colgroup>
+                                <col class="OldCalcResultCol1">
+                                <col class="OldCalcResultCol2">
+                                <col class="OldCalcResultCol3">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td class="textsize2bold" align="center" colspan="2">Initial Values</td>
+                                    <td align="right" rowspan="10">
+                                        <img id="Chart1" src="http://relocationessentials.com/Temp/ChartPic_000296.png?51fda09e-a801-496f-b691-1c929d127723" alt="" border="0"></td>
+                                </tr>
+                                <tr>
+                                    <td>Home Price<br>
+                                    </td>
+                                    <td><span id="PrincipalLabel13">$20,000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Down<br>
+                                        Payment<br>
+                                    </td>
+                                    <td><span id="DPLabel13">$2,000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Length<br>
+                                    </td>
+                                    <td><span id="LengthLabel13">40 years</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Interest Rate<br>
+                                    </td>
+                                    <td><span id="RateLabel13">3.40%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Additional Principal<br>
+                                    </td>
+                                    <td><span id="AddPrincipalLabel13">$12</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="textsize2bold" align="center" colspan="2">
+                                        <br>
+                                        Summary Values
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>PI Payment<br>
+                                    </td>
+                                    <td><span id="PaymentLabel13">$81</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Interest
+                                    </td>
+                                    <td><span id="TotalInterestLabel13">$10,522</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Paid
+                                    </td>
+                                    <td><span id="TotalPaidLabel13">$28,522</span></td>
+                                </tr>
+                                <tr><td><center><input type="image" name="BackButton" onclick="javascript: swapTab(2, 3, 2);" id="BackButton" src="/images/btn_edit.gif" alt="Edit" border="0"></center>
+                                    </td></tr>
+                                    
+                            </tbody>
+                        </table>
+                        <div id="AmortGraphs13">
+
+                        </div>
                     </div>
                     <div id="content-4">
                         <table width="100%" cellpadding="5" cellspacing="1" border="0" class="TableHeadingColor">

@@ -9,93 +9,93 @@
         <img src="/images/bnr_demographics.gif" />
         <br />
         <span style="float:left; width:40%">Location</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A (@ViewBag.Zip)</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Location) (@ViewBag.Zip1)</span>
         <br />
         <span style="float:left; width:40%">County Seat</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).CountySeat)</span>
         <br />
         <span style="float:left; width:40%">Area by Square Miles</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Area)</span>
         <br />
         <span style="float:left; width:40%">Population</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Population)</span>
         <br />
         <span style="float:left; width:40%">Population Density</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Density)</span>
         <br />
         <span style="float:left; width:40%">Median Age</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Age)</span>
         <br />
         <span style="float:left; width:40%">Average Family Size</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).FamilySize)</span>
         <br />
         <span style="float:left; width:40%">Total Households</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Households)</span>
         <br />
         <span style="float:left; width:40%">Average Household Size</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).HouseholdSize)</span>
         <br />
         <span style="float:left; width:40%">Median Home Value</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).MHV)</span>
         <br />
         <img src="/images/bnr_employment.gif" />
         <br />
         <span style="float:left; width:40%">Income per Capita</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).IC)</span>
         <br />
         <span style="float:left; width:40%">Median Household Income</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).MHI)</span>
         <br />
         <span style="float:left; width:40%">Unemployment Rate</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).UR)</span>
         <br />
         <span style="float:left; width:40%">Commute Time (minutes)</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Commute)</span>
         <br />
         <img src="/images/bnr_scholastics.gif" />
         <br />
         <span style="float:left; width:40%">High School Graduation</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).HSG)</span>
         <br />
         <span style="float:left; width:40%">College Graduation</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).CG)</span>
         <br />
         <span style="float:left; width:40%">Post-College Graduation</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).PCG)</span>
         <br />
         <img src="/images/bnr_climate.gif" />
         <br />
         <span style="float:left; width:40%">Average Temperature-January (F)</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).TempJan)</span>
         <br />
         <span style="float:left; width:40%">Average Temperature-July (F)</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).TempJul)</span>
         <br />
         <span style="float:left; width:40%">Annual Precipitation (inches)</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Precipitation)</span>
         <br />
         <span style="float:left; width:40%">Annual Snow Fall (inches)</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).Snow)</span>
         <br />
         <img src="/images/bnr_taxes.gif" />
         <br />
         <span style="float:left; width:40%">State Income Tax Rate</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).SITR)</span>
         <br />
         <span style="float:left; width:40%">Sales Tax Rate</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).STR)</span>
         <br />
         <span style="float:left; width:40%">Local Sales Tax Rate</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).LSTR)</span>
         <br />
         <span style="float:left; width:40%">Food Tax</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).FT)</span>
         <br />
         <span style="float:left; width:40%">Taxes % of Personal Income</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).TPI)</span>
         <br />
         <span style="float:left; width:40%">State Taxes per Capita</span>
-        <span style="float:left; margin-right:25px; width:25%">N/A</span>
+        <span style="float:left; margin-right:25px; width:25%">@((ViewBag.M).STC)</span>
         <br />
-    </div>  
+    </div>      
 </div>

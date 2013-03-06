@@ -1,0 +1,201 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    function transfer() {
+        var salary = document.getElementById('CurrentSalary');
+        var org = document.getElementById('OrgState').options[document.getElementById('OrgState').selectedIndex].value;
+        var des = document.getElementById('DesState').options[document.getElementById('DesState').selectedIndex].value;
+        var orgWhich = (document.getElementById('rlbOrgLocation_0').checked) ? "P" : (document.getElementById('rblOrgLocation_1').checked) ? "C" : "Z";
+        var desWhich = (document.getElementById('rlbDesLocation_0').checked) ? "P" : (document.getElementById('rblDesLocation_1').checked) ? "C" : "Z";
+        var orgValue = document.getElementById('OrgLocation').value;
+        var desValue = document.getElementById('DesLocation').value;
+
+        parent.swapPage('CostOfLiving/Display?CurrentSalary=' + salary + '&OrgState=' + org + '&DesState=' + des + '&type1=' + orgWhich + '&type2=' + desWhich + '&Value1=' + orgValue + '&Value2=' + desValue);
+    }
+</script>
+
+<div id="TitleBanner">
+<img src="/images/icon_costofliving.gif" id="_ctl1_img_Icon">
+<img src="/images/title_costofliving.gif" id="_ctl1_img_Banner">
+</div>
+
+<div id="content">
+<table cellspacing="0" cellpadding="0" border="0" align="center" width="500"><tbody><tr><td>
+	<div id="div_ColText" style="width:500px;margin-left:auto;margin-right:auto;text-align:left;">Are 
+		you interested in seeing how your standard of living compares to other 
+		locations? Check out our Cost of Living Tool and get the answers immediately.
+		<br>
+		<br>
+		You can choose up to two (2) locations to view. If you are only interested in 
+		your local area, simply select location one information. If you would like to 
+		compare locations side-by-side enter both location one and location two 
+		information.
+		<br>
+		<img height="24" src="/images/bnr_choosealocationcompare.gif" width="490">
+	</div>
+	</td></tr></tbody></table>
+
+<table id="pnl_SelectLocation" cellpadding="0" cellspacing="0" border="0" width="100%"><tbody><tr><td>
+	
+		
+		
+		<table cellspacing="0" cellpadding="0" align="center" border="0">
+			<tbody><tr>
+				<td align="left" colspan="3"><br>
+					Current Salary<br>
+					<input name="CurrentSalary" type="text" value="50000" id="CurrentSalary"><br>
+					&nbsp;</td>
+				
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td align="center" width="40"></td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td width="40%">Location One:<br>
+					<select name="OrgState" id="OrgState">
+		<option selected="selected" value="00">Select One</option>
+		<option value="01">Alabama</option>
+		<option value="02">Alaska</option>
+		<option value="04">Arizona</option>
+		<option value="05">Arkansas</option>
+		<option value="06">California</option>
+		<option value="08">Colorado</option>
+		<option value="09">Connecticut</option>
+		<option value="10">Delaware</option>
+		<option value="11">District of Columbia</option>
+		<option value="12">Florida</option>
+		<option value="13">Georgia</option>
+		<option value="15">Hawaii</option>
+		<option value="16">Idaho</option>
+		<option value="17">Illinois</option>
+		<option value="18">Indiana</option>
+		<option value="19">Iowa</option>
+		<option value="20">Kansas</option>
+		<option value="21">Kentucky</option>
+		<option value="22">Louisiana</option>
+		<option value="23">Maine</option>
+		<option value="24">Maryland</option>
+		<option value="25">Massachusetts</option>
+		<option value="26">Michigan</option>
+		<option value="27">Minnesota</option>
+		<option value="28">Mississippi</option>
+		<option value="29">Missouri</option>
+		<option value="30">Montana</option>
+		<option value="31">Nebraska</option>
+		<option value="32">Nevada</option>
+		<option value="33">New Hampshire</option>
+		<option value="34">New Jersey</option>
+		<option value="35">New Mexico</option>
+		<option value="36">New York</option>
+		<option value="37">North Carolina</option>
+		<option value="38">North Dakota</option>
+		<option value="39">Ohio</option>
+		<option value="40">Oklahoma</option>
+		<option value="41">Oregon</option>
+		<option value="42">Pennsylvania</option>
+		<option value="44">Rhode Island</option>
+		<option value="45">South Carolina</option>
+		<option value="46">South Dakota</option>
+		<option value="47">Tennessee</option>
+		<option value="48">Texas</option>
+		<option value="49">Utah</option>
+		<option value="50">Vermont</option>
+		<option value="51">Virginia</option>
+		<option value="53">Washington</option>
+		<option value="54">West Virginia</option>
+		<option value="55">Wisconsin</option>
+		<option value="56">Wyoming</option>
+
+	</select></td>
+				<td width="20%" align="center" rowspan="2"><img height="100" src="/images/to.gif" width="40"></td>
+				<td width="40%">Location Two: (optional)<br>
+					<select name="DesState" id="DesState">
+		<option selected="selected" value="00">Select One</option>
+		<option value="01">Alabama</option>
+		<option value="02">Alaska</option>
+		<option value="04">Arizona</option>
+		<option value="05">Arkansas</option>
+		<option value="06">California</option>
+		<option value="08">Colorado</option>
+		<option value="09">Connecticut</option>
+		<option value="10">Delaware</option>
+		<option value="11">District of Columbia</option>
+		<option value="12">Florida</option>
+		<option value="13">Georgia</option>
+		<option value="15">Hawaii</option>
+		<option value="16">Idaho</option>
+		<option value="17">Illinois</option>
+		<option value="18">Indiana</option>
+		<option value="19">Iowa</option>
+		<option value="20">Kansas</option>
+		<option value="21">Kentucky</option>
+		<option value="22">Louisiana</option>
+		<option value="23">Maine</option>
+		<option value="24">Maryland</option>
+		<option value="25">Massachusetts</option>
+		<option value="26">Michigan</option>
+		<option value="27">Minnesota</option>
+		<option value="28">Mississippi</option>
+		<option value="29">Missouri</option>
+		<option value="30">Montana</option>
+		<option value="31">Nebraska</option>
+		<option value="32">Nevada</option>
+		<option value="33">New Hampshire</option>
+		<option value="34">New Jersey</option>
+		<option value="35">New Mexico</option>
+		<option value="36">New York</option>
+		<option value="37">North Carolina</option>
+		<option value="38">North Dakota</option>
+		<option value="39">Ohio</option>
+		<option value="40">Oklahoma</option>
+		<option value="41">Oregon</option>
+		<option value="42">Pennsylvania</option>
+		<option value="44">Rhode Island</option>
+		<option value="45">South Carolina</option>
+		<option value="46">South Dakota</option>
+		<option value="47">Tennessee</option>
+		<option value="48">Texas</option>
+		<option value="49">Utah</option>
+		<option value="50">Vermont</option>
+		<option value="51">Virginia</option>
+		<option value="53">Washington</option>
+		<option value="54">West Virginia</option>
+		<option value="55">Wisconsin</option>
+		<option value="56">Wyoming</option>
+
+	</select></td>
+			</tr>
+			<tr>
+				<td>
+					<table id="rblOrgLocation" cellspacing="0" onclick="run_OnClick_rblOrgLocation()" border="0" width="200">
+		<tbody><tr>
+			<td><input id="rblOrgLocation_0" type="radio" name="rblOrgLocation" value="P" checked="checked"><label for="rblOrgLocation_0">City</label></td><td><input id="rblOrgLocation_1" type="radio" name="rblOrgLocation" value="C"><label for="rblOrgLocation_1">County</label></td><td><input id="rblOrgLocation_2" type="radio" name="rblOrgLocation" value="Z"><label for="rblOrgLocation_2">Zip Code</label></td>
+		</tr>
+	</tbody></table><br>
+					<input name="OrgLocation" type="text" id="OrgLocation"></td>
+				<td>
+					<table id="rblDesLocation" cellspacing="0" onclick="run_OnClick_rblDesLocation()" border="0" width="200">
+		<tbody><tr>
+			<td><input id="rblDesLocation_0" type="radio" name="rblDesLocation" value="P"><label for="rblDesLocation_0">City</label></td><td><input id="rblDesLocation_1" type="radio" name="rblDesLocation" value="C"><label for="rblDesLocation_1">County</label></td><td><input id="rblDesLocation_2" type="radio" name="rblDesLocation" value="Z" checked="checked"><label for="rblDesLocation_2">Zip Code</label></td>
+		</tr>
+	</tbody></table><br>
+					<input name="DesLocation" type="text" id="DesLocation"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="4"><br>
+					<img height="1" src="/images/mainpx.gif" width="480"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="4"><br>
+					<a href="#" onclick="transfer();"><img id="btn_ConfirmLocationsNext" src="/images/btn_next.gif" alt="Next" border="0"></a></td>
+			</tr>
+		</tbody></table>
+	
+</td></tr></tbody></table>
+    </div>

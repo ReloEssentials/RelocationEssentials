@@ -14,7 +14,7 @@
              <table>
                  <tr>
                      <td>
-                         <a href="#">@dm.Name</a>
+                         @Html.ActionLink(dm.Name, "ReportCard", new { model = dm })
                          @dm.Attributes.Where(x => x.Name.Equals("Street")).ToList()[0].Value
                          <br />
                          @dm.Attributes.Where(x => x.Name.Equals("City")).ToList()[0].Value,
@@ -48,7 +48,7 @@
              <table border="0">
                  <tr>
                      <td>
-                         <a href="#">@dm.Name</a>
+                         @Html.ActionLink(dm.Name, "ReportCard", new { model = dm })
                          @dm.Attributes.Where(x => x.Name.Equals("Street")).ToList()[0].Value
                          <br />
                          @dm.Attributes.Where(x => x.Name.Equals("City")).ToList()[0].Value,

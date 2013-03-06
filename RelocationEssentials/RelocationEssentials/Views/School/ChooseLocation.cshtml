@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "ChooseLocation";
+}
+
+<div style="width:560px">
+@using(Html.BeginForm("SchoolDistricts", "School", FormMethod.Post))
+{
+<table id="Panel1" cellpadding="0" cellspacing="0" border="0" width="100%"><tbody><tr><td>
+
+		<table height="99" cellspacing="0" cellpadding="0" width="100%" border="0">
+			<tbody><tr>
+				<td>Relocating can have a major impact on the quality of education for your family. 
+					We know you have a number of important decisions to make, especially concerning 
+					your children's education. Our service is designed to give you all the 
+					information you need to identify schools that meet your family's educational 
+					needs and goals.<br>
+					<img height="24" src="/images/bnr_choosealocation.gif" width="490" border="0">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table height="250" cellspacing="0" cellpadding="0" width="496" align="center" border="0">
+						<tbody><tr>
+							<td colspan="3">
+								</td>
+						</tr>
+						<tr valign="center">
+							<td>
+								<table height="90" cellspacing="0" cellpadding="0" width="210" border="0">
+									<tbody><tr>
+										<td><b>State</b><br>
+											<select name="State" id="State">
+		<option value="00">Select One</option>
+		<option value="01">Alabama</option>
+		<option value="02">Alaska</option>
+		<option value="04">Arizona</option>
+		<option value="05">Arkansas</option>
+		<option value="06">California</option>
+		<option value="08">Colorado</option>
+		<option value="09">Connecticut</option>
+		<option value="10">Delaware</option>
+		<option value="11">District of Columbia</option>
+		<option value="12">Florida</option>
+		<option value="13">Georgia</option>
+		<option value="15">Hawaii</option>
+		<option value="16">Idaho</option>
+		<option value="17">Illinois</option>
+		<option value="18">Indiana</option>
+		<option value="19">Iowa</option>
+		<option value="20">Kansas</option>
+		<option value="21">Kentucky</option>
+		<option value="22">Louisiana</option>
+		<option value="23">Maine</option>
+		<option value="24">Maryland</option>
+		<option value="25">Massachusetts</option>
+		<option value="26">Michigan</option>
+		<option value="27">Minnesota</option>
+		<option value="28">Mississippi</option>
+		<option value="29">Missouri</option>
+		<option value="30">Montana</option>
+		<option value="31">Nebraska</option>
+		<option value="32">Nevada</option>
+		<option value="33">New Hampshire</option>
+		<option value="34">New Jersey</option>
+		<option value="35">New Mexico</option>
+		<option value="36">New York</option>
+		<option value="37">North Carolina</option>
+		<option value="38">North Dakota</option>
+		<option value="39">Ohio</option>
+		<option value="40">Oklahoma</option>
+		<option value="41">Oregon</option>
+		<option value="42">Pennsylvania</option>
+		<option value="44">Rhode Island</option>
+		<option value="45">South Carolina</option>
+		<option value="46">South Dakota</option>
+		<option value="47">Tennessee</option>
+		<option value="48">Texas</option>
+		<option value="49">Utah</option>
+		<option value="50">Vermont</option>
+		<option value="51">Virginia</option>
+		<option value="53">Washington</option>
+		<option value="54">West Virginia</option>
+		<option value="55">Wisconsin</option>
+		<option value="56">Wyoming</option>
+
+	</select>
+</td>
+									</tr>
+									<tr>
+										<td colspan="3"><br>
+											<table id="rblSchool" cellspacing="0" border="0" width="200">
+		<tbody><tr>
+			<td><input id="Type" type="radio" name="Type" value="City" checked="checked"><label for="rblSchool_0">City</label></td><td><input id="Type" type="radio" name="Type" value="County"><label for="rblSchool_1">County</label></td><td><input id="Type" type="radio" name="Type" value="School"><label for="rblSchool_2">School</label></td>
+		</tr>
+	</tbody></table>
+											<input name="Value" type="text" id="Value" onchange="OnKeyworkClick()"></td>
+									</tr>
+								</tbody></table>
+							</td>
+							<td align="center" width="40"><img height="100" src="/images/or.gif" width="40" border="0">
+							</td>
+							<td>
+								<table height="100" cellspacing="0" cellpadding="0" width="210" border="0">
+									<tbody><tr valign="center">
+										<td rowspan="2"><img height="1" src="/sharedimages/transparent.gif" width="10" border="0"></td>
+										<td><b>Zip Code</b>
+											&nbsp;<br>
+											<input name="Zip" type="text" maxlength="5" id="Zip"></td>
+									</tr>
+									<tr>
+										<td><b>Mile Radius</b><br>
+											<select name="Miles" id="Miles">
+		<option selected="selected" value="0">Select All</option>
+		<option value="1">1 Mile</option>
+		<option value="5">5 Miles</option>
+		<option value="10">10 Miles</option>
+		<option value="15">15 Miles</option>
+		<option value="20">20 Miles</option>
+		<option value="50">50 Miles</option>
+
+	</select>
+<br>
+											(Applies only to Private Schools)</td>
+									</tr>
+								</tbody></table>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="3">What type of schools are you looking for?</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="3"><img height="1" src="/images/mainpx.gif" width="470" border="0"></td>
+						</tr>
+						<tr>
+							<td align="center" colspan="3">
+								<table id="cblSchoolType" cellspacing="0" border="0" width="250">
+		<tbody><tr>
+			<td><input id="Public" type="checkbox" name="Public" checked="checked" value="true"><label for="Public">Public</label></td><td><input id="Private" type="checkbox" name="Private" value="true"><label for="cblSchoolType_1">Private</label></td>
+		</tr>
+	</tbody></table>
+								</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="3">
+								</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+	
+</td></tr></tbody></table>
+    <center><br>
+		<input type="image" src="/images/btn_submit.gif" alt="Submit" />
+    </center>
+}
+</div>

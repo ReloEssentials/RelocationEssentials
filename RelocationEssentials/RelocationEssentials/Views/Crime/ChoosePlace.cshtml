@@ -5,8 +5,8 @@
 @using(Html.BeginForm())
 {
     <div id="main">
-        <img src="/images/icon_commcompare.gif" />
-        <img src="/images/title_communityinformation.gif" />
+        <img src="/images/icon_crime.gif" />
+        <img src="/images/title_crimereports.gif" />
         <br />
         <img src="/images/bnr_choosealocation.gif" />
         <br />
@@ -19,6 +19,6 @@
             <img height="1px" src="/images/mainpx.gif" width="470px" />
         </div>
         <br />
-        <input type="submit" value="" id="submitButton" />
+        <center><a href="#" onclick="parent.swapPage('Crime/Display?Place='+document.getElementById('Place').value)"><img src="/images/btn_submit.gif" /></a></center>
     </div>
 }

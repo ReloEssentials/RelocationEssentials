@@ -1,0 +1,271 @@
+﻿@model List<RelocationEssentials.Models.CoLModel>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<div style="width:560px">
+<div id="TitleBanner">
+<img src="/images/icon_costofliving.gif" id="_ctl1_img_Icon">
+<img src="/images/title_costofliving.gif" id="_ctl1_img_Banner">
+</div>
+
+<table id="pnl_DisplayData" cellpadding="0" cellspacing="0" border="0" width="100%"><tbody><tr><td>
+	
+		<table cellspacing="8" cellpadding="0" width="500" border="0" align="center">
+			<tbody><tr id="tr_StartOver">
+		<td>
+					<input type="image" name="btn_BackToConfirmLocations" onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="btn_BackToConfirmLocations" src="/images/btn_previous.gif" alt="Back" border="0">
+					<input type="image" name="btnStartOver" onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="btnStartOver" src="/images/btn_startover.gif" alt="Start Over" border="0"></td>
+	</tr>
+	
+			<tr>
+				<td>
+					
+<table cellspacing="0" cellpadding="0" width="500" border="0">
+	<tbody><tr>
+		<td>
+			<table cellspacing="0" cellpadding="0" width="100%" border="0">
+				<tbody><tr valign="bottom">
+					<td colspan="3" align="center"><img src="/images/mainpx.gif" width="490" height="1" border="0" vspace="3"></td>
+				</tr>
+				<tr bgcolor="#cccccc" height="35">
+					<td class="textsize1bold" colspan="3">&nbsp;&nbsp;
+                        @if(Model[1] == null)
+                        {
+						    <span id="_ctl5_lblComparisonFor">Cost of living for: <b>@Model[0].Name</b></span>
+                        }
+                        else
+                        {
+                            <span id="_ctl5_lblComparisonFor">Cost of living differences for: <br /><b>@Model[0].Name, and @Model[1].Name</b></span>
+                        }
+					</td>
+				</tr>
+				<tr valign="top">
+					<td colspan="3" align="center"><img src="/images/mainpx.gif" width="490" height="1" border="0" vspace="3"></td>
+				</tr>
+				<tr>
+					<td width="195">&nbsp;</td>
+					<td class="textsize1bold" align="center">Salary:</td>
+					<td class="textsize1bold" align="center" width="156">Adjusted For Cost
+						<br>
+						of Living:</td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center"><img src="/images/mainpx.gif" width="490" height="1" border="0" vspace="3"></td>
+				</tr>
+				<tr>
+					<td class="textsize1bold" width="195">Location One:<br>
+						<span id="_ctl5_Origin1">@Model[0].Name</span></td>
+					<td align="center"><span id="_ctl5_OrgMedian1">@Model[0].Salary</span></td>
+					<td align="center" width="156"><span id="_ctl5_OrgAdj1">@Model[0].Salary</span></td>
+				</tr>
+				
+                @if(Model[1] != null)
+                {
+				    <tr>
+					    <td colspan="3" align="center"><img src="/images/mainpx.gif" width="490" height="1" border="0" vspace="3"></td>
+				    </tr>
+                    <tr>
+					    <td class="textsize1bold" width="195">Location Two:<br>
+						    <span id="_ctl5_Origin2">@Model[1].Name</span></td>
+					    <td align="center"><span id="_ctl5_OrgMedian2">@Model[1].Salary</span></td>
+					    <td align="center" width="156"><span id="_ctl5_OrgAdj2">@Model[1].Salary</span></td>
+				    </tr>
+				}
+				<tr>
+					<td colspan="3" align="center"><img src="/images/mainpx.gif" width="490" height="1" border="0" vspace="3"></td>
+				</tr>
+				<tr>
+					<td class="textsize1bold" width="195">Change in disposable income:</td>
+					<td align="center">&nbsp;</td>
+					<td align="center" width="156"><span id="_ctl5_Disposable">N/A</span></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center"><img src="/images/mainpx.gif" width="490" height="1" border="0" vspace="3"></td>
+				</tr>
+				</tbody></table><table id="_ctl5_DispPanel" cellpadding="0" cellspacing="0" border="0" width="100%"><tbody><tr><td>
+		
+					</td></tr><tr>
+						<td colspan="3"><img height="5" src="/sharedimages/transparent.gif" width="480"></td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<span id="_ctl5_DispDescription">Salary numbers are typically reported as an index of one city to another. Since you have only selected one city, your salary number has been indexed to the national average. The national average is always reported as "100".</span></td>
+					</tr>
+					<tr>
+						<td colspan="3"><img height="20" src="/sharedimages/transparent.gif" width="480"></td>
+					</tr>
+				
+	</tbody></table>
+				</td></tr><tr>
+					<td bgcolor="#cccccc" colspan="3"><img height="12" src="/sharedimages/transparent.gif" width="480"></td>
+				</tr>
+			</tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td><img height="20" src="/sharedimages/transparent.gif" width="1" align="absMiddle">Please 
+			scroll down to view additional graphs.<br>
+		</td>
+	</tr>
+</tbody></table>
+</td>
+			</tr>
+			<tr>
+				<td>
+				
+					<table cellspacing="8" cellpadding="0" width="100%" border="0" align="center">
+									<tbody><tr><td align="center" width="50%">
+									<input type="image" name="btnGraph" onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="btnGraph" src="/images/btn_colcompareindexes_on.gif" alt="" border="0"></td>
+								<td>&nbsp;</td>
+								<td align="center" width="50%">
+									<input type="image" name="btnExpenses" onclick="if (typeof(Page_ClientValidate) == 'function') Page_ClientValidate(); " language="javascript" id="btnExpenses" src="/images/btn_colmonthlyexpenses.gif" alt="" border="0"></td>
+					</tr></tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span id="lblGraph">Graph Description</span></td>
+			</tr>
+			<tr>
+				<td>
+					
+
+<table>	
+	<tbody><tr>
+		<td align="center">
+			<div id="chart" alt="" border="0" style="width:400px; height:500px"></div>
+            <div id="table">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td align="middle" colspan="3">
+                                <br>
+                                <table cellspacing="0" cellpadding="2" width="100%" border="0">
+                                    <tbody>
+                                        <tr class="backgroundcolor1">
+                                            <th class="textcolor2" colspan="2">*Average Monthly Expenses</th>
+                                            <th class="textcolor2" align="middle"><span id="_ctl6_LblOName2">@Model[0].Name</span></th>
+                                            <th class="textcolor2" align="middle"><span id="_ctl6_LblD1Name2">@Model[1].Name</span></th>
+                                        </tr>
+                                        <tr>
+                                            <td width="20"><a href="javascript: MM_openBrWindow('/aff/www/tools/Salary/colHelpFeatures.aspx?Display=foodgroceries','HelpFeatures','width=300,height=300,top=200,left=200')">
+                                                <img height="20" src="/images/questionmark.gif" width="20" border="0"></a></td>
+                                            <td>Food &amp; Groceries </td>
+                                            <td align="middle"><span id="_ctl6_LblOGrocery">$431</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Grocery">$413</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20"><a href="javascript: MM_openBrWindow('/aff/www/tools/Salary/colHelpFeatures.aspx?Display=Housing','HelpFeatures','width=300,height=300,top=200,left=200')">
+                                                <img height="20" src="/images/questionmark.gif" width="20" border="0"></a></td>
+                                            <td>Housing </td>
+                                            <td align="middle"><span id="_ctl6_LblOHousing">$1,004</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Housing">$795</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20"><a href="javascript: MM_openBrWindow('/aff/www/tools/Salary/colHelpFeatures.aspx?Display=Utilities','HelpFeatures','width=300,height=300,top=200,left=200')">
+                                                <img height="20" src="/images/questionmark.gif" width="20" border="0"></a></td>
+                                            <td>Utilities </td>
+                                            <td align="middle"><span id="_ctl6_LblOUtil">$266</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Util">$266</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20"><a href="javascript: MM_openBrWindow('/aff/www/tools/Salary/colHelpFeatures.aspx?Display=transportation','HelpFeatures','width=300,height=300,top=200,left=200')">
+                                                <img height="20" src="/images/questionmark.gif" width="20" border="0" id="IMG1"></a></td>
+                                            <td>Transportation</td>
+                                            <td align="middle"><span id="_ctl6_LblOTrans">$291</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Trans">$291</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20"><a href="javascript: MM_openBrWindow('/aff/www/tools/Salary/colHelpFeatures.aspx?Display=healthcare','HelpFeatures','width=300,height=300,top=200,left=200')">
+                                                <img height="20" src="/images/questionmark.gif" width="20" border="0"></a></td>
+                                            <td>Health Care</td>
+                                            <td align="middle"><span id="_ctl6_LblOHealth">$144</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Health">$141</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20"><a href="javascript: MM_openBrWindow('/aff/www/tools/Salary/colHelpFeatures.aspx?Display=Miscellaneous','HelpFeatures','width=300,height=300,top=200,left=200')">
+                                                <img height="20" src="/images/questionmark.gif" width="20" border="0"></a></td>
+                                            <td>Misc. </td>
+                                            <td align="middle"><span id="_ctl6_LblOMisc">$967</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Misc">$967</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="middle" colspan="5">
+                                                <img height="1" src="/images/mainpx.gif" width="490" vspace="3" border="0"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="20"><a href="javascript: MM_openBrWindow('/aff/www/tools/Salary/colHelpFeatures.aspx?Display=compositeindex','HelpFeatures','width=300,height=300,top=200,left=200')">
+                                                <img height="20" src="/images/questionmark.gif" width="20" border="0"></a></td>
+                                            <td>Spending Power</td>
+                                            <td align="middle"><span id="_ctl6_LblLoSpending">$100</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Spending">$93</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" colspan="2">*These figures assume a federal tax 
+                  of rate 28%</td>
+                                            <td align="middle"><span id="_ctl6_LblOTax">$1,167</span></td>
+                                            <td align="middle"><span id="_ctl6_LblD1Tax">$1,075</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+		</td>
+	</tr>	
+</tbody></table>
+</td>
+			</tr>
+		</tbody></table>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // For horizontal bar charts, x an y values must will be "flipped"
+        // from their vertical bar counterpart.
+        var plot = $.jqplot('chart', [
+            [[@Model[0].Composite, "Composite"], [@Model[0].Food, "Food and Groceries"], [@Model[0].Housing, "Housing"], [@Model[0].Utilities, "Utilities"], [@Model[0].HealthCare, "Health Care"], [@Model[0].Transportation, "Transportation"], [@Model[0].Misc, "Misc"]],
+            [[@Model[1].Composite, "Composite"], [@Model[1].Food, "Food and Groceries"], [@Model[1].Housing, "Housing"], [@Model[1].Utilities, "Utilities"], [@Model[1].HealthCare, "Health Care"], [@Model[1].Transportation, "Transportation"], [@Model[1].Misc, "Misc"]]], {
+                seriesDefaults: {
+                    renderer: $.jqplot.BarRenderer,
+                    // Show point labels to the right ('e'ast) of each bar.
+                    // edgeTolerance of -15 allows labels flow outside the grid
+                    // up to 15 pixels.  If they flow out more than that, they 
+                    // will be hidden.
+                    pointLabels: { show: false, location: 'e', edgeTolerance: -15 },
+                    // Rotate the bar shadow as if bar is lit from top right.
+                    shadowAngle: 135,
+                    // Here's where we tell the chart it is oriented horizontally.
+                    rendererOptions: {
+                        barDirection: 'horizontal',
+                        barWidth: 15,
+                        barMargin: 25
+                    }
+                },
+                axes: {
+                    yaxis: {
+                        renderer: $.jqplot.CategoryAxisRenderer
+                    }
+                }
+            });
+    });
+</script>
+
+<!-- Don't touch this! -->
+    <script class="include" type="text/javascript" src="/Scripts/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shCore.min.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+<!-- End Don't touch this! -->
+
+<!-- Additional plugins go here -->
+
+    <script class="include" language="javascript" type="text/javascript" src="/Scripts/plugins/jqplot.barRenderer.min.js"></script>
+    <script class="include" language="javascript" type="text/javascript" src="/Scripts/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script class="include" language="javascript" type="text/javascript" src="/Scripts/plugins/jqplot.pointLabels.min.js"></script>
+
+<!-- End additional plugins -->

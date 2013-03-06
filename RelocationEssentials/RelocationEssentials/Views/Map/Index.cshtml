@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+
+    function setUpMap() {
+        var svgDoc = document.getElementById("map").contentDocument;
+        setOriginal(svgDoc);
+    }
+
+    function setOriginal(svgDoc) {
+        initElement(svgDoc, "HI");
+        initElement(svgDoc, "AK");
+        initElement(svgDoc, "FL");
+        initElement(svgDoc, "NH");
+        initElement(svgDoc, "MI");
+        initElement(svgDoc, "MI-");
+        initElement(svgDoc, "SP-");
+        initElement(svgDoc, "VT");
+        initElement(svgDoc, "ME");
+        initElement(svgDoc, "RI");
+        initElement(svgDoc, "NY");
+        initElement(svgDoc, "PA");
+        initElement(svgDoc, "NJ");
+        initElement(svgDoc, "DE");
+        initElement(svgDoc, "MD");
+        initElement(svgDoc, "VA");
+        initElement(svgDoc, "WV");
+        initElement(svgDoc, "OH");
+        initElement(svgDoc, "IN");
+        initElement(svgDoc, "IL");
+        initElement(svgDoc, "CT");
+        initElement(svgDoc, "WI");
+        initElement(svgDoc, "NC");
+        initElement(svgDoc, "DC");
+        initElement(svgDoc, "MA");
+        initElement(svgDoc, "TN");
+        initElement(svgDoc, "AR");
+        initElement(svgDoc, "MO");
+        initElement(svgDoc, "GA");
+        initElement(svgDoc, "SC");
+        initElement(svgDoc, "KY");
+        initElement(svgDoc, "AL");
+        initElement(svgDoc, "LA");
+        initElement(svgDoc, "MS");
+        initElement(svgDoc, "IA");
+        initElement(svgDoc, "MN");
+        initElement(svgDoc, "OK");
+        initElement(svgDoc, "TX");
+        initElement(svgDoc, "NM");
+        initElement(svgDoc, "KS");
+        initElement(svgDoc, "NE");
+        initElement(svgDoc, "SD");
+        initElement(svgDoc, "ND");
+        initElement(svgDoc, "WY");
+        initElement(svgDoc, "MT");
+        initElement(svgDoc, "CO");
+        initElement(svgDoc, "ID");
+        initElement(svgDoc, "UT");
+        initElement(svgDoc, "AZ");
+        initElement(svgDoc, "NV");
+        initElement(svgDoc, "OR");
+        initElement(svgDoc, "WA");
+        initElement(svgDoc, "CA");
+    }
+
+    function initElement(svgDoc, area) {
+        var e = svgDoc.getElementById(area);
+        e.addEventListener("click", function () { loadPage(area) }, false);
+        e.addEventListener("mouseover", function () { svgDoc.getElementById(area).style.fill = "#000000"; }, false);
+        e.addEventListener("mouseout", function () { svgDoc.getElementById(area).style.fill = mainColor; }, false);
+        e.style.fill = mainColor;
+    }
+
+    function loadPage(area) {
+        document.getElementById('mapDiv').style.display = "none";
+        $('#statePage').load('Map/StateDisplay?StateAbbrv=' + area, function () {
+            document.getElementById('stateTitle').src = "/images/StateTitle_" + area + ".gif";
+            document.getElementById('stateImg').src = "/images/statemap_" + area + ".gif";
+            document.getElementById('atAGlance').src = "/images/AtAGlance_" + area + ".gif";
+            document.getElementById('stateName1').innerText = area;
+            document.getElementById('stateName2').innerText = area;
+            document.getElementById('stateName3').innerText = area;
+            document.getElementById('statePage').style.display = "block";
+        });
+    }
+</script>
+
+<div id="display">
+    <div id="mapDiv">
+        <object data="/images/Blank_US_Map.svg" id="map" onload="setUpMap()" type="image/svg+xml"></object>
+    </div>
+    <div id="statePage" style="display:none">
+        
+    </div>
+</div>

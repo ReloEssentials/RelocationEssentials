@@ -23,14 +23,14 @@ namespace RelocationEssentials.Controllers
                 List<DataModel> Models = session.Query<DataModel>().OrderBy(x => x.Code).ToList();
                 foreach (DataModel dm in Models)
                 {
-                    foreach (Models.Attribute a in dm.Attributes)
+                    /*foreach (Models.Attribute a in dm.Attributes)
                     {
                         if (a.Name.Equals("Name"))
                         {
                             States.Add(new SelectListItem() { Text = a.Name, Value = a.Name, Selected = false });
                             break;
                         }
-                    }
+                    }*/
                 }
             }
 
@@ -64,15 +64,15 @@ namespace RelocationEssentials.Controllers
                 Models = session.Query<DataModel>().ToList();
                 foreach (DataModel dm in Models)
                 {
-                    foreach (Models.Attribute a in dm.Attributes)
+                    /*foreach (Models.Attribute a in dm.Attributes)
                     {
-                        if (a.Name.Equals("State_Name"))
+                        if (a.Name.Equals("StateNM"))
                         {
-                            if (a.Value.Equals(State))
+                            /*if (a.Value.Equals(State))
                                 StateEnumerable.Add(new SelectListItem() { Text = dm.Name, Value = dm.Name, Selected = false });
                             break;
                         }
-                    }
+                    }*/
                 }
             }
             ViewBag.SE = StateEnumerable;

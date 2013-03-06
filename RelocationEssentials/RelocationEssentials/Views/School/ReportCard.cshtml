@@ -8,10 +8,6 @@
         swapTop(1);
     }
 
-    function resizeFrame(f) {
-        f.style.height = f.contentWindow.document.body.scrollHeight + "px";
-    }
-
     function swapTop(num) {
         if (num == 1) {
             document.getElementById("schooltab").src = "/images/schooltab_school_on.gif";
@@ -37,8 +33,7 @@
         document.getElementById("facilitiestab").src = "/images/schooltab_facilities.gif";
         document.getElementById("academiatab").src = "/images/schooltab_academia.gif";
         document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula.gif";
-        document.getElementById('schoolFrame2').src = topTab + "Front";
-        resizeFrame(document.getElementById('schoolFrame2'));
+        $('#pageContent').load(topTab + 'Front');
     }
 
     function swapPage(num) {
@@ -98,8 +93,7 @@
             document.getElementById("xcurriculatab").src = "/images/schooltab_xcurricula_on.gif";
             page = "XCurricula";
         }
-        document.getElementById('schoolFrame2').src = ""+topTab+page;
-        resizeFrame(document.getElementById('schoolFrame2'));
+        $('#pageContent').load('' + topTab + page);
     }
 
 </script>
@@ -114,7 +108,7 @@
     <table style="margin-top:-4px">
         <tr>
             <td style="margin:0px;padding:0px;border:solid 1px black;">								       
-                <iframe src="SchoolFront" id="schoolFrame2" style="width:520px" frameborder="0"></iframe>
+                <div id="pageContent"></div>
             </td>
             <td width="30" align=left valign="top" style="margin:0px;padding:0px;">
                 <a href="javascript:swapPage(1);"><img id="overviewtab" src="/images/schooltab_overview.gif" alt="School Overview" border="0"></a>

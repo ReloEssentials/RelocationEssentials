@@ -1,9 +1,17 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-
-@using(Html.BeginForm())
-{
+<script type="text/javascript">
+    function nextPage() {
+        var stateList = document.getElementById('State');
+        var state = stateList.options[stateList.selectedIndex].value;
+        var zip = document.getElementById('Zip').value;
+        if (state == "" && zip != "")
+            parent.swapPage("Crime/Display?Zip=" + zip);
+        else if ((zip == "" && state != "") || (zip != "" && state != ""))
+            parent.swapPage("Crime/ChoosePlace?State=" + state);
+    }
+</script>
     <div id="main">
         <img src="/images/icon_crime.gif" />
         <img src="/images/title_crimereports.gif" />
@@ -30,7 +38,6 @@
                 <img height="1px" src="/images/mainpx.gif" width="470px" />
             </div>
             <br />
-            <input type="submit" value="" id="submitButton" />
+            <center><a href="#" onclick="javascript:nextPage()"><img src="/images/btn_submit.gif" /></a></center>
         </div>
     </div>
-}
