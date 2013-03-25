@@ -17,23 +17,21 @@
                                     <tr>
                                         <td valign="top" width="315">
                                             <img alt="Counties" src="/images/bnr_topcitiesbypop.gif">
-                                            <table id="fifty_cities" border="0" width="100%">
-                                                <tbody
-                                                        @for (var i = 0; i < ViewBag.topCities.Count; i++ )
-                                                        {
-                                                            if(i%2 == 0){
-                                                                <tr>
-                                                            }
-                                                            <td>
-                                                                <img src="/images/Arrow.gif" />&nbsp;
-                                                                @ViewBag.topCities[i].Text
-                                                            </td>
-                                                            @if(i%2 != 0){
-                                                                </tr>
-                                                            }
-                                                        }
-                                                </tbody>
-                                            </table>
+                                            <div id="fifty_cities" border="0" width="100%">
+                                                @for (var i = 0; i < ViewBag.topCities.Count; i++ )
+                                                {
+                                                    <span><img src="/images/Arrow.gif" />&nbsp;
+                                                        @ViewBag.topCities[i].Text
+                                                    </span>
+                                                    if (i != ViewBag.topCities.Count - 1)
+                                                    {
+                                                        <span style="float:right"><img src="/images/Arrow.gif" />&nbsp;
+                                                            @ViewBag.topCities[i+1].Text
+                                                        </span>
+                                                    }
+                                                    <br />
+                                                }
+                                            </div>
                                         </td>
                                         <td valign="top" width="220" align="right">
                                             <br>
@@ -69,14 +67,13 @@
 
                                                 <br>
                                                 All cities in&nbsp;<span id="stateName1"></span><br>
-                                                @Html.DropDownList("city", (IEnumerable<SelectListItem>) ViewBag.cities);
+                                                @Html.DropDownList("city", (IEnumerable<SelectListItem>) ViewBag.cities)
                                                 <br>
                                                 All Counties in&nbsp;<span id="stateName2"></span>
-					                            @Html.DropDownList("county", (IEnumerable<SelectListItem>) ViewBag.counties);
+					                            @Html.DropDownList("county", (IEnumerable<SelectListItem>) ViewBag.counties)
                                                 <br />
                                                 <br />
-                                                All Zip Codes in <span id="stateName3"></span>
-                                                @Html.DropDownList("zip", (IEnumerable<SelectListItem>) ViewBag.zips);
+                                                @Html.TextBox("zip");
                                             </div>
                                         </td>
                                     </tr>

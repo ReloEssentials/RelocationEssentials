@@ -13,24 +13,14 @@ namespace RelocationEssentials.Controllers
 
         public ActionResult Index()
         {
-            DocumentStore Store = new DocumentStore { ConnectionStringName = "Raven", DefaultDatabase = "State" };
-            Store.Initialize();
-
             List<SelectListItem> States = new List<SelectListItem>();
             States.Add(new SelectListItem() { Text = "", Value = "" });
-            using (var session = Store.OpenSession())
+            using (var session = MvcApplication.Store.OpenSession())
             {
-                List<DataModel> Models = session.Query<DataModel>().OrderBy(x => x.Code).ToList();
-                foreach (DataModel dm in Models)
+                List<StateModel> Models = session.Query<StateModel>().OrderBy(x => x.StateCD).ToList();
+                foreach (StateModel dm in Models)
                 {
-                    /*foreach (Models.Attribute a in dm.Attributes)
-                    {
-                        if (a.Name.Equals("NAME"))
-                        {
-                            States.Add(new SelectListItem() { Text = a.Name, Value = a.Name, Selected = false });
-                            break;
-                        }
-                    }*/
+                    States.Add(new SelectListItem() { Text = dm.StateNM, Value = dm.StateCD, Selected = false });
                 }
             }
 
@@ -39,148 +29,118 @@ namespace RelocationEssentials.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Index(String StateList1, String StateList2, String Zip1, String Zip2)
+        public ActionResult CompareZip(String Zip1, String Zip2)
         {
-            
-
-            if (!(Zip1.Length == 0 && Zip2.Length == 0))
+            ZipModel dm1, dm2;
+            using (var session = MvcApplication.Store.OpenSession())
             {
-                DocumentStore Store = new DocumentStore { ConnectionStringName = "Raven", DefaultDatabase = "Zip" };
-                Store.Initialize();
-
-                if (Zip2.Length != 0)
+                try
                 {
-                    DataModel dm1, dm2;
-                    using (var session = Store.OpenSession())
-                    {
-                        dm1 = session.Query<DataModel>().Where(x => x.Code == Zip1).ToList()[0];
-                        dm2 = session.Query<DataModel>().Where(x => x.Code == Zip2).ToList()[0];
-                    }
-                    try
-                    {
-                        /*CCModel m1 = new CCModel(dm1.Attributes.Where(x => x.Name.Equals("Place")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("County_Seat")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Area")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Population_Total")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Population_Density")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Median_Age")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Average_Family_Size")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Households")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Average_Household_Size")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Median_Home_Value")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Income_per_Capita")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Median_Household_Income")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Unemployment_Rate")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Commute_Time")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("High_School_Graduation")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("College_Graduation")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Post_College_Graduation")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Average_Temp_Jan")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Average_Temp_Jul")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Precipitation")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Snow")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("State_Income_Tax_Rate")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Sales_Tax_Rate")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Local_Sales_Tax_Rate")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Food_Tax")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("Taxes_Personal_Income")).ToList()[0].Value,
-                            dm1.Attributes.Where(x => x.Name.Equals("State_Taxes_per_Capita")).ToList()[0].Value);
-                        CCModel m2 = new CCModel(dm2.Attributes.Where(x => x.Name.Equals("Place")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("County_Seat")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Area")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Population_Total")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Population_Density")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Median_Age")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Average_Family_Size")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Households")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Average_Household_Size")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Median_Home_Value")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Income_per_Capita")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Median_Household_Income")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Unemployment_Rate")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Commute_Time")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("High_School_Graduation")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("College_Graduation")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Post_College_Graduation")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Average_Temp_Jan")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Average_Temp_Jul")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Precipitation")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Snow")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("State_Income_Tax_Rate")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Sales_Tax_Rate")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Local_Sales_Tax_Rate")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Food_Tax")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("Taxes_Personal_Income")).ToList()[0].Value,
-                            dm2.Attributes.Where(x => x.Name.Equals("State_Taxes_per_Capita")).ToList()[0].Value);*/
-                        return RedirectToAction("Index");//"CompareZip", new { Zip1 = Zip1, Zip2 = Zip2, Model1 = m1, Model2 = m2 });
-
-                    }
-                    catch (Exception e)
-                    {
-                        return RedirectToAction("Index");
-                    }
+                    dm1 = session.Query<ZipModel>().Where(x => x.Code == Zip1).First();
+                    dm2 = session.Query<ZipModel>().Where(x => x.Code == Zip2).First();
                 }
-                else
+                catch (Exception e)
                 {
-                    DataModel dm;
-                    using (var session = Store.OpenSession())
-                    {
-                        dm = session.Query<DataModel>().Where(x => x.Code == Zip1).ToList()[0];
-                    }
-                    /*CCModel m = new CCModel(dm.Attributes.Where(x => x.Name.Equals("Place")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("County_Seat")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Area")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Population_Total")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Population_Density")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Median_Age")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Average_Family_Size")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Households")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Average_Household_Size")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Median_Home_Value")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Income_per_Capita")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Median_Household_Income")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Unemployment_Rate")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Commute_Time")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("High_School_Graduation")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("College_Graduation")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Post_College_Graduation")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Average_Temp_Jan")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Average_Temp_Jul")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Precipitation")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Snow")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("State_Income_Tax_Rate")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Sales_Tax_Rate")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Local_Sales_Tax_Rate")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Food_Tax")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("Taxes_Personal_Income")).ToList()[0].Value,
-                        dm.Attributes.Where(x => x.Name.Equals("State_Taxes_per_Capita")).ToList()[0].Value);*/
-                    return RedirectToAction("Index");//"DisplayZip", new { Zip = Zip1, Model = m });
+                    return RedirectToAction("Index");
                 }
             }
-            else if (!(StateList1 == null || StateList2 == null) && !(StateList1.Length == 0 && StateList2.Length == 0))
-            {
-                if (StateList2.Length != 0)
-                    return RedirectToAction("ChoosePlaceForTwo", new { State1 = StateList1, State2 = StateList2 });
-                else
-                    return RedirectToAction("ChoosePlace", new { State = StateList1 });
-            }
-            return View();
-        }
-
-        public ActionResult CompareZip(String Zip1, String Zip2, CCModel Model1, CCModel Model2)
-        {
+            CCModel m1 = new CCModel(dm1.PlaceNM,
+                dm1.County_Seat,
+                dm1.Area,
+                dm1.Total_Population,
+                dm1.Population_Density,
+                dm1.Median_Age,
+                dm1.Average_Family_Size,
+                dm1.Households,
+                dm1.Average_Household_Size,
+                dm1.Median_Home_Value,
+                dm1.Income_per_Capita,
+                dm1.Median_Household_Income,
+                dm1.Unemployment_Rate,
+                dm1.Commute_Time,
+                dm1.High_School_Graduation,
+                dm1.College_Graduation,
+                dm1.Post_College_Graduation,
+                dm1.Average_Temp_Jan,
+                dm1.Average_Temp_Jul,
+                dm1.Precipitation,
+                dm1.Snow,
+                dm1.State_Income_Tax_Rate,
+                dm1.Sales_Tax_Rate,
+                dm1.Local_Sales_Tax_Rate,
+                dm1.Food_Tax,
+                dm1.Taxes_Personal_Income,
+                dm1.State_Taxes_per_Capita);
+            CCModel m2 = new CCModel(dm2.PlaceNM,
+                dm2.County_Seat,
+                dm2.Area,
+                dm2.Total_Population,
+                dm2.Population_Density,
+                dm2.Median_Age,
+                dm2.Average_Family_Size,
+                dm2.Households,
+                dm2.Average_Household_Size,
+                dm2.Median_Home_Value,
+                dm2.Income_per_Capita,
+                dm2.Median_Household_Income,
+                dm2.Unemployment_Rate,
+                dm2.Commute_Time,
+                dm2.High_School_Graduation,
+                dm2.College_Graduation,
+                dm2.Post_College_Graduation,
+                dm2.Average_Temp_Jan,
+                dm2.Average_Temp_Jul,
+                dm2.Precipitation,
+                dm2.Snow,
+                dm2.State_Income_Tax_Rate,
+                dm2.Sales_Tax_Rate,
+                dm2.Local_Sales_Tax_Rate,
+                dm2.Food_Tax,
+                dm2.Taxes_Personal_Income,
+                dm2.State_Taxes_per_Capita);
             ViewBag.Zip1 = Zip1;
             ViewBag.Zip2 = Zip2;
-            ViewBag.M1 = Model1;
-            ViewBag.M2 = Model2;
+            ViewBag.M1 = m1;
+            ViewBag.M2 = m2;
             return View();
         }
 
-        public ActionResult DisplayZip(String Zip, CCModel Model)
+        public ActionResult DisplayZip(String Zip)
         {
+            ZipModel dm;
+            using (var session = MvcApplication.Store.OpenSession())
+            {
+                dm = session.Query<ZipModel>().Where(x => x.ZCTA5 == Zip).First();
+            }
+            CCModel m1 = new CCModel(dm.PlaceNM,
+                dm.County_Seat,
+                dm.Area,
+                dm.Total_Population,
+                dm.Population_Density,
+                dm.Median_Age,
+                dm.Average_Family_Size,
+                dm.Households,
+                dm.Average_Household_Size,
+                dm.Median_Home_Value,
+                dm.Income_per_Capita,
+                dm.Median_Household_Income,
+                dm.Unemployment_Rate,
+                dm.Commute_Time,
+                dm.High_School_Graduation,
+                dm.College_Graduation,
+                dm.Post_College_Graduation,
+                dm.Average_Temp_Jan,
+                dm.Average_Temp_Jul,
+                dm.Precipitation,
+                dm.Snow,
+                dm.State_Income_Tax_Rate,
+                dm.Sales_Tax_Rate,
+                dm.Local_Sales_Tax_Rate,
+                dm.Food_Tax,
+                dm.Taxes_Personal_Income,
+                dm.State_Taxes_per_Capita);
             ViewBag.Zip = Zip;
-            ViewBag.M = Model;
+            ViewBag.M = m1;
             return View();
         }
 
@@ -192,27 +152,15 @@ namespace RelocationEssentials.Controllers
             State1Enumerable.Add(new SelectListItem() { Text = "", Value = "" });
             State2Enumerable.Add(new SelectListItem() { Text = "", Value = "" });
 
-            DocumentStore Store = new DocumentStore() { ConnectionStringName = "Raven", DefaultDatabase = "Place" };
-            Store.Initialize();
-
-            List<DataModel> Models;
-            using (var session = Store.OpenSession())
+            List<PlaceModel> Models1, Models2;
+            using (var session = MvcApplication.Store.OpenSession())
             {
-                Models = session.Query<DataModel>().ToList();
-                foreach (DataModel dm in Models)
-                {
-                    /*foreach (Models.Attribute a in dm.Attributes)
-                    {
-                        if (a.Name.Equals("StateNM"))
-                        {
-                            /*if (a.Value.Equals(State1))
-                                State1Enumerable.Add(new SelectListItem() { Text = dm.Name, Value = dm.Name });
-                            else if (a.Value.Equals(State2))
-                                State2Enumerable.Add(new SelectListItem() { Text = dm.Name, Value = dm.Name });
-                            break;
-                        }
-                    }*/
-                }
+                Models1 = session.Query<PlaceModel>().Where(x => x.StateCD == State1).ToList();
+                Models2 = session.Query<PlaceModel>().Where(x => x.StateCD == State2).ToList();
+                foreach (PlaceModel pm in Models1)
+                    State1Enumerable.Add(new SelectListItem() { Text = pm.PlaceNM, Value = pm.PlaceCD });
+                foreach(PlaceModel pm in Models2)
+                    State2Enumerable.Add(new SelectListItem() { Text = pm.PlaceNM, Value = pm.PlaceCD });
             }
 
             ViewBag.S1E = State1Enumerable;
@@ -221,57 +169,131 @@ namespace RelocationEssentials.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult ChoosePlaceForTwo(String Place1, String Place2, int v = 0)
-        {
-            return RedirectToAction("ComparePlace", new { Place1 = Place1, Place2 = Place2 });
-        }
-
         public ActionResult ChoosePlace(String State)
         {
             List<SelectListItem> StateEnumerable = new List<SelectListItem>();
             StateEnumerable.Add(new SelectListItem() { Text = "", Value = "" });
 
-            DocumentStore Store = new DocumentStore() { ConnectionStringName = "Raven", DefaultDatabase = "Place" };
-            Store.Initialize();
-
-            List<DataModel> Models;
-            using (var session = Store.OpenSession())
+            List<PlaceModel> Models;
+            using (var session = MvcApplication.Store.OpenSession())
             {
-                Models = session.Query<DataModel>().ToList();
-                foreach (DataModel dm in Models)
-                {
-                    /*foreach (Models.Attribute a in dm.Attributes)
-                    {
-                        if (a.Name.Equals("StateNM"))
-                        {
-                            /*if (a.Value.Equals(State))
-                                StateEnumerable.Add(new SelectListItem() { Text = dm.Name, Value = dm.Name, Selected = false });
-                            break;
-                        }
-                    }*/
-                }
+                Models = session.Query<PlaceModel>().Where(x => x.StateCD == State).ToList();
+                foreach (PlaceModel pm in Models)
+                     StateEnumerable.Add(new SelectListItem() { Text = pm.PlaceNM, Value = pm.PlaceCD, Selected = false });
             }
             ViewBag.SE = StateEnumerable;
             return View();
         }
 
-        [HttpPost]
-        public ActionResult ChoosePlace(String Place, int v = 0)
+        public ActionResult ComparePlace(String Place1, String Place2)
         {
-            return RedirectToAction("DisplayPlace", new { Place = Place });
-        }
-
-        public ActionResult ComparePlace(String Place1, String Place2, CCModel Model1, CCModel Model2)
-        {
-            ViewBag.M1 = Model1;
-            ViewBag.M2 = Model2;
+            PlaceModel dm1, dm2;
+            using (var session = MvcApplication.Store.OpenSession())
+            {
+                try
+                {
+                    dm1 = session.Query<PlaceModel>().Where(x => x.PlaceCD == Place1).First();
+                    dm2 = session.Query<PlaceModel>().Where(x => x.PlaceCD == Place2).First();
+                }
+                catch (Exception e)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            CCModel m1 = new CCModel(dm1.PlaceNM,
+                dm1.County_Seat,
+                dm1.Area,
+                dm1.Total_Population,
+                dm1.Population_Density,
+                dm1.Median_Age,
+                dm1.Average_Family_Size,
+                dm1.Households,
+                dm1.Average_Household_Size,
+                dm1.Median_Home_Value,
+                dm1.Income_per_Capita,
+                dm1.Median_Household_Income,
+                dm1.Unemployment_Rate,
+                dm1.Commute_Time,
+                dm1.High_School_Graduation,
+                dm1.College_Graduation,
+                dm1.Post_College_Graduation,
+                dm1.Average_Temp_Jan,
+                dm1.Average_Temp_Jul,
+                dm1.Precipitation,
+                dm1.Snow,
+                dm1.State_Income_Tax_Rate,
+                dm1.Sales_Tax_Rate,
+                dm1.Local_Sales_Tax_Rate,
+                dm1.Food_Tax,
+                dm1.Taxes_Personal_Income,
+                dm1.State_Taxes_per_Capita);
+            CCModel m2 = new CCModel(dm2.PlaceNM,
+                dm2.County_Seat,
+                dm2.Area,
+                dm2.Total_Population,
+                dm2.Population_Density,
+                dm2.Median_Age,
+                dm2.Average_Family_Size,
+                dm2.Households,
+                dm2.Average_Household_Size,
+                dm2.Median_Home_Value,
+                dm2.Income_per_Capita,
+                dm2.Median_Household_Income,
+                dm2.Unemployment_Rate,
+                dm2.Commute_Time,
+                dm2.High_School_Graduation,
+                dm2.College_Graduation,
+                dm2.Post_College_Graduation,
+                dm2.Average_Temp_Jan,
+                dm2.Average_Temp_Jul,
+                dm2.Precipitation,
+                dm2.Snow,
+                dm2.State_Income_Tax_Rate,
+                dm2.Sales_Tax_Rate,
+                dm2.Local_Sales_Tax_Rate,
+                dm2.Food_Tax,
+                dm2.Taxes_Personal_Income,
+                dm2.State_Taxes_per_Capita);
+            ViewBag.M1 = m1;
+            ViewBag.M2 = m2;
             return View();
         }
 
-        public ActionResult DisplayPlace(String Place, CCModel Model)
+        public ActionResult DisplayPlace(String Place)
         {
-            ViewBag.M = Model;
+            PlaceModel dm;
+            using (var session = MvcApplication.Store.OpenSession())
+            {
+                dm = session.Query<PlaceModel>().Where(x => x.PlaceCD == Place).First();
+            }
+            CCModel m1 = new CCModel(dm.PlaceNM,
+                dm.County_Seat,
+                dm.Area,
+                dm.Total_Population,
+                dm.Population_Density,
+                dm.Median_Age,
+                dm.Average_Family_Size,
+                dm.Households,
+                dm.Average_Household_Size,
+                dm.Median_Home_Value,
+                dm.Income_per_Capita,
+                dm.Median_Household_Income,
+                dm.Unemployment_Rate,
+                dm.Commute_Time,
+                dm.High_School_Graduation,
+                dm.College_Graduation,
+                dm.Post_College_Graduation,
+                dm.Average_Temp_Jan,
+                dm.Average_Temp_Jul,
+                dm.Precipitation,
+                dm.Snow,
+                dm.State_Income_Tax_Rate,
+                dm.Sales_Tax_Rate,
+                dm.Local_Sales_Tax_Rate,
+                dm.Food_Tax,
+                dm.Taxes_Personal_Income,
+                dm.State_Taxes_per_Capita);
+            ViewBag.M = m1;
             return View();
         }
 
