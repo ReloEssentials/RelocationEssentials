@@ -10,7 +10,7 @@ namespace RelocationEssentials.Models
         public String Location { get; set; }
         public String CountySeat { get; set; }
         public String Area { get; set; }
-        public String Population { get; set; }
+        public long Population { get; set; }
         public String Density { get; set; }
         public String Age { get; set; }
         public String FamilySize { get; set; }
@@ -35,7 +35,7 @@ namespace RelocationEssentials.Models
         public String TPI { get; set; }
         public String STC { get; set; }
 
-        public CCModel(String Location, String CountySeat, String Area, String Population, String Density, String Age, String FamilySize,
+        public CCModel(String Location, String CountySeat, String Area, long Population, String Density, String Age, String FamilySize,
             String Households, String HouseholdSize, String MHV, String IC, String MHI, String UR, String Commute, String HSG, String CG, String PCG,
             String TempJan, String TempJul, String Precipitation, String Snow, String SITR, String STR, String LSTR, String FT, String TPI, String STC)
         {

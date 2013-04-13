@@ -1,106 +1,67 @@
 ﻿@{
     ViewBag.Title = "StateDisplay";
 }
+<script type="text/javascript">
+    window.onload = function () {
+        $.ajax({ url: "/Map/getPlaces", type: "get" }).done(function (jsondata) {
+            var output = [];
+            output.push('<option value="">Select a City</option>');
+            for (var i = 0; i < jsondata.length; i++) {
+                var key = jsondata[i].split(",")[0];
+                var value = jsondata[i].split(",")[1];
+                output.push('<option value="' + value + '">' + key + '</option>');
+            }
+            $('#city').html(output.join(''));
+        });
+        $.ajax({ url: "/Map/getCounties", type: "get" }).done(function (jsondata) {
+            var output = [];
+            output.push('<option value="">Select a County</option>');
+            for (var i = 0; i < jsondata.length; i++) {
+                var key = jsondata[i].split(",")[0];
+                var value = jsondata[i].split(",")[1];
+                output.push('<option value="' + value + '">' + key + '</option>');
+            }
+            $('#county').html(output.join(''));
+        });
+    }
+    var city = document.getElementById('city');
+    city.onchange = function () {
+        if(city.Value != '')
+            parent.swapPage('CommunityComparison/DisplayPlace?Place=' + city.value);
+    }
+    var county = document.getElementById('county');
+    county.onchange = function () {
+        if (county.Value != '')
+            parent.swapPage('CommunityComparison/DisplayCounty?County=' + county.value);
+    }
+    var zip = document.getElementById('zip');
+    zip.onkeyup = function (e) {
+        if (e.keyCode == 13) {
+                parent.swapPage('CommunityComparison/DisplayZip?Zip=' + zip.value);
+            return false;
+        }
+    }
+</script>
 
-        <table align="center" cellspacing="0" cellpadding="0" border="0" width="550" id="ReloWrappingTable">
-            <tbody>
-                <tr>
-                    <td>
-                            <br>
-                            <table cellspacing="5" cellpadding="0" width="550" border="0">
-                                <tbody>
-                                    <tr>
-                                        <td width="535" align="left" colspan="2">
-                                            <img hspace="3" src="/images/StateTitle_TX.gif" border="0" id="stateTitle">
-                                            <img src="/images/featuredfade.gif"></td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" width="315">
-                                            <img alt="Counties" src="/images/bnr_topcitiesbypop.gif">
-                                            <div id="fifty_cities" border="0" width="100%">
-                                                @for (var i = 0; i < ViewBag.topCities.Count; i++ )
-                                                {
-                                                    <span><img src="/images/Arrow.gif" />&nbsp;
-                                                        @ViewBag.topCities[i].Text
-                                                    </span>
-                                                    if (i != ViewBag.topCities.Count - 1)
-                                                    {
-                                                        <span style="float:right"><img src="/images/Arrow.gif" />&nbsp;
-                                                            @ViewBag.topCities[i+1].Text
-                                                        </span>
-                                                    }
-                                                    <br />
-                                                }
-                                            </div>
-                                        </td>
-                                        <td valign="top" width="220" align="right">
-                                            <br>
-                                            <br>
-                                            <br>
-                                            <div style="BORDER-RIGHT: #000099 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #000099 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #000099 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #000099 1px solid; BACKGROUND-COLOR: #eeeeee" align="center">
-                                                <img src="/images/statemap_TX.gif" border="0" id="stateImg"><br>
-                                                <br>
-                                                <br>
-                                                <br>
-                                                <img height="16" hspace="3" src="/images/AtAGlance_TX.gif" width="174" align="absMiddle" border="0" id="atAGlance">
-                                                <table cellspacing="5" cellpadding="0" width="180" align="center" border="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="50%" align="left">Population</td>
-                                                            <td width="50%" align="right">N/A</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="50%" align="left">Median Age</td>
-                                                            <td width="50%" align="right">N/A</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="50%" align="left">Unemployment</td>
-                                                            <td width="50%" align="right">N/A</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="60%" align="left">Median Income</td>
-                                                            <td width="40%" align="right">N/A</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <br>
+<div style="width:550px">
+    <div class="title1">
+        State Title
+    </div>
+    <div class="gradientLine"></div>
+    <div class="title2">
+        Italicized Title
+    </div>
+    <div style="float:left; width:390px">
 
-                                                <br>
-                                                All cities in&nbsp;<span id="stateName1"></span><br>
-                                                @Html.DropDownList("city", (IEnumerable<SelectListItem>) ViewBag.cities)
-                                                <br>
-                                                All Counties in&nbsp;<span id="stateName2"></span>
-					                            @Html.DropDownList("county", (IEnumerable<SelectListItem>) ViewBag.counties)
-                                                <br />
-                                                <br />
-                                                @Html.TextBox("zip");
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table cellspacing="5" cellpadding="0" width="550" border="0">
-                                <tbody>
-                                    <tr>
-                                        <td width="100%">
-                                            <img alt="Counties" style="margin-top: 20px" src="/images/bnr_topcountiesbypop.gif"><br>
-                                            <img src="/images/featuredfade.gif"></td>
-                                    </tr>
-                                    <tr>
-                                        <td width="100%">
-                                            <table id="twentyFiveCounties" border="0" width="100%">
-                                                <tbody>
-                                                    
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    </div>
+    <div style="float:left; width:150px">
+
+    </div>
+    <div class="title2">
+        Another Italicized Title
+    </div>
+    <div class="gradientLine"></div>
+    <div>
+
+    </div>
+</div>

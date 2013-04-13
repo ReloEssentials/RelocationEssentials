@@ -1,9 +1,14 @@
 ﻿@{
     ViewBag.Title = "ChoosePlace";
 }
+<script type="text/javascript">
+    toDisplay = function () {
+        var place = document.getElementById("Place");
 
-@using(Html.BeginForm())
-{
+        if (place.value != "")
+            parent.swapPage("Crime/Display?Place=" + place.value);
+    }
+</script>
     <div id="main">
         <img src="/images/icon_crime.gif" />
         <img src="/images/title_crimereports.gif" />
@@ -21,4 +26,3 @@
         <br />
         <center><a href="#" onclick="parent.swapPage('Crime/Display?Place='+document.getElementById('Place').value)"><img src="/images/btn_submit.gif" /></a></center>
     </div>
-}

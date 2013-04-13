@@ -15,7 +15,7 @@ namespace RelocationEssentials.Models
         public String StateCD { get { return Get("StateCD"); } }
         public String County_Seat { get { return Get("County_Seat"); } }
         public String Area { get { return Get("Area"); } }
-        public String Total_Population { get { return Get("Total_Population"); } }
+        public long Total_Population { get { return Convert.ToInt64(Attributes["Total_Population"]); } }
         public String Population_Density { get { return Get("Population_Density"); } }
         public String Median_Age { get { return Get("Median_Age"); } }
         public String Average_Family_Size { get { return Get("Average_Family_Size"); } }
@@ -50,7 +50,7 @@ namespace RelocationEssentials.Models
         {
             if (Attributes.ContainsKey(key))
                 return Attributes[key];
-            using (var session = MvcApplication.Store.OpenSession())
+            /*using (var session = MvcApplication.Store.OpenSession())
             {
                 CountyModel c = session.Query<CountyModel>().Where(x => x.CountyCD == CountyCD).First();
                 if (c.Attributes.ContainsKey(key))
@@ -58,7 +58,7 @@ namespace RelocationEssentials.Models
                 StateModel s = session.Query<StateModel>().Where(x => x.StateCD == c.StateCD).First();
                 if (s.Attributes.ContainsKey(key))
                     return s.Attributes[key];
-            }
+            }*/
             return "N/A";
         }
     }

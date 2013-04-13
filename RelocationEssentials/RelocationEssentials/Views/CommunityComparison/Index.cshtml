@@ -2,7 +2,22 @@
     ViewBag.Title = "Index";
 }
 <script type="text/javascript">
-
+    selectSwap = function () {
+        var zip1 = document.getElementById('Zip1'),
+            zip2 = document.getElementById('Zip2'),
+            SL1 = document.getElementById('StateList1'),
+            SL2 = document.getElementById('StateList2');
+        if (zip1.value == "")
+            if (SL2.value != "")
+                parent.swapPage('CommunityComparison/ChoosePlaceForTwo?State1=' + SL1.value + '&State2=' + SL2.value);
+            else
+                parent.swapPage('CommunityComparison/ChoosePlace?State=' + SL1.value);
+        else
+            if (zip2.value != "")
+                parent.swapPage('CommunityComparison/CompareZip?Zip1=' + zip1.value + '&Zip2=' + zip2.value);
+            else
+                parent.swapPage('CommunityComparison/DisplayZip?Zip=' + zip1.value);
+    }
 </script>
     <div id="main">
         <img src="/images/icon_commcompare.gif" />
@@ -39,7 +54,7 @@
                     <img height="1px" src="/images/mainpx.gif" width="470px" />
                 </div>
                 <br />
-                <a id="submitButton"></a>
+                <a href="#" onclick="javascript:selectSwap();"><img src="images/btn_submit.gif" border="0" /></a>
             </div>
         </div>
         <div id="content">

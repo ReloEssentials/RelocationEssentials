@@ -21,66 +21,52 @@ namespace RelocationEssentials.Controllers
 
         public ActionResult Display(int CurrentSalary, String OrgState, String DesState, String type1, String type2, String Value1, String Value2)
         {
-            DocumentStore CountyStore = new DocumentStore() { ConnectionStringName = "Raven", DefaultDatabase = "County" };
-            CountyStore.Initialize();
 
-            DocumentStore ZipStore = new DocumentStore() { ConnectionStringName = "Raven", DefaultDatabase = "Zip" };
-            ZipStore.Initialize();
+            /*CountyModel OrgCounty = null, DesCounty = null;
 
-            DocumentStore PlaceStore = new DocumentStore() { ConnectionStringName = "Raven", DefaultDatabase = "Place" };
-            PlaceStore.Initialize();
-
-            DataModel OrgCounty = null, DesCounty = null;
-
-            /*try
+            try
             {
-                using (var zipSession = ZipStore.OpenSession())
+                using (var session = MvcApplication.Store.OpenSession())
                 {
-                    using (var placeSession = PlaceStore.OpenSession())
+                    if (Value1 == null)
+                        return RedirectToAction("Index");
+                    if (type1 == "P")
                     {
-                        using (var countySession = CountyStore.OpenSession())
-                        {
-                            if (Value1 == null)
-                                return RedirectToAction("Index");
-                            if (type1 == "P")
-                            {
-                                DataModel Place1 = placeSession.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePlace).Value.Contains(Value1)).ToList()[0];
-                                OrgCounty = countySession.Query<DataModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(OrgState) && x.Attributes.Find(equalsCDCounty).Value.Equals(Place1.Attributes.Find(equalsCDCounty).Value)).ToList()[0];
-                            }
-                            else if (type1 == "C")
-                            {
-                                OrgCounty = countySession.Query<DataModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(OrgState) && x.Attributes.Find(equalsNameCounty).Value.Contains(Value1)).ToList()[0];
-                            }
-                            else if (type1 == "Z")
-                            {
-                                DataModel Zip1 = zipSession.Query<DataModel>().Where(x => x.Code.Equals(Value1)).ToList()[0];
-                                DataModel Place1 = placeSession.Query<DataModel>().Where(x => x.Code.Equals(Zip1.Attributes.Find(equalsCDPlace))).ToList()[0];
-                                OrgCounty = countySession.Query<DataModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(OrgState) && x.Attributes.Find(equalsCDCounty).Value.Equals(Place1.Attributes.Find(equalsCDCounty).Value)).ToList()[0];
-                            }
-                            else
-                                throw new Exception();
+                        PlaceModel Place1 = session.Query<PlaceModel>().Where(x => x.PlaceNM.Contains(Value1)).First();
+                        OrgCounty = session.Query<CountyModel>().Where(x => x.StateCD == OrgState && x.CountyCD == Place1.CountyCD).First();
+                    }
+                    else if (type1 == "C")
+                    {
+                        OrgCounty = session.Query<CountyModel>().Where(x => x.StateCD == OrgState && x.CountyNM.Contains(Value1)).First();
+                    }
+                    else if (type1 == "Z")
+                    {
+                        ZipModel Zip1 = session.Query<ZipModel>().Where(x => x.Code.Equals(Value1)).ToList()[0];
+                        PlaceModel Place1 = session.Query<PlaceModel>().Where(x => x.Code.Equals(Zip1.Attributes.Find(equalsCDPlace))).ToList()[0];
+                        OrgCounty = session.Query<CountyModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(OrgState) && x.Attributes.Find(equalsCDCounty).Value.Equals(Place1.Attributes.Find(equalsCDCounty).Value)).ToList()[0];
+                    }
+                    else
+                        throw new Exception();
 
-                            if (Value2 != null)
-                            {
-                                if (type2 == "P")
-                                {
-                                    DataModel Place2 = placeSession.Query<DataModel>().Where(x => x.Attributes.Find(equalsNamePlace).Value.Contains(Value1)).ToList()[0];
-                                    DesCounty = countySession.Query<DataModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(DesState) && x.Attributes.Find(equalsCDCounty).Value.Equals(Place2.Attributes.Find(equalsCDCounty).Value)).ToList()[0];
-                                }
-                                else if (type2 == "C")
-                                {
-                                    DesCounty = countySession.Query<DataModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(DesState) && x.Attributes.Find(equalsNameCounty).Value.Contains(Value1)).ToList()[0];
-                                }
-                                else if (type2 == "Z")
-                                {
-                                    DataModel Zip2 = zipSession.Query<DataModel>().Where(x => x.Code.Equals(Value1)).ToList()[0];
-                                    DataModel Place2 = placeSession.Query<DataModel>().Where(x => x.Code.Equals(Zip2.Attributes.Find(equalsCDPlace))).ToList()[0];
-                                    OrgCounty = countySession.Query<DataModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(DesState) && x.Attributes.Find(equalsCDCounty).Value.Equals(Place2.Attributes.Find(equalsCDCounty).Value)).ToList()[0];
-                                }
-                                else
-                                    throw new Exception();
-                            }
+                    if (Value2 != null)
+                    {
+                        if (type2 == "P")
+                        {
+                            PlaceModel Place2 = session.Query<PlaceModel>().Where(x => x.Attributes.Find(equalsNamePlace).Value.Contains(Value1)).ToList()[0];
+                            DesCounty = session.Query<CountyModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(DesState) && x.Attributes.Find(equalsCDCounty).Value.Equals(Place2.Attributes.Find(equalsCDCounty).Value)).ToList()[0];
                         }
+                        else if (type2 == "C")
+                        {
+                            DesCounty = session.Query<CountyModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(DesState) && x.Attributes.Find(equalsNameCounty).Value.Contains(Value1)).ToList()[0];
+                        }
+                        else if (type2 == "Z")
+                        {
+                            ZipModel Zip2 = session.Query<ZipModel>().Where(x => x.Code.Equals(Value1)).ToList()[0];
+                            PlaceModel Place2 = session.Query<PlaceModel>().Where(x => x.Code.Equals(Zip2.Attributes.Find(equalsCDPlace))).ToList()[0];
+                            OrgCounty = session.Query<CountyModel>().Where(x => x.Attributes.Find(equalsCDState).Value.Equals(DesState) && x.Attributes.Find(equalsCDCounty).Value.Equals(Place2.Attributes.Find(equalsCDCounty).Value)).ToList()[0];
+                        }
+                        else
+                            throw new Exception();
                     }
                 }
             }
@@ -115,8 +101,7 @@ namespace RelocationEssentials.Controllers
             CoLModel cm1 = new CoLModel(CurrentSalary, Name1, C1, F1, H1, U1, T1, HC1, M1);
             CoLModel cm2 = null;
             if(Value2 != null)
-                cm2 = new CoLModel(CurrentSalary, Name2, C2, F2, H2, U2, T2, HC2, M2);
-            */
+                cm2 = new CoLModel(CurrentSalary, Name2, C2, F2, H2, U2, T2, HC2, M2);*/
             return View();//new List<CoLModel>() {cm1, cm2});
         }
     }

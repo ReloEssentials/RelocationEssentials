@@ -15,7 +15,6 @@ namespace RelocationEssentials
 
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static DocumentStore Store = new DocumentStore { ConnectionStringName = "Raven", DefaultDatabase = "RelocationEssentials" };
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -37,11 +36,6 @@ namespace RelocationEssentials
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
-            // Use LocalDB for Entity Framework by default
-            Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
-
-            Store.Initialize();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);

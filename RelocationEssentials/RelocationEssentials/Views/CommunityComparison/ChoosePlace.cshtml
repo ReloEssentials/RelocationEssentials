@@ -1,12 +1,17 @@
 ﻿@{
     ViewBag.Title = "ChoosePlace";
 }
+<script type="text/javascript">
+    var place = document.getElementById("Place");
 
-@using(Html.BeginForm())
-{
+    toDisplay = function () {
+        if (place.value != "")
+            parent.swapPage("CommunityComparison/DisplayPlace?Place=" + place.value);
+    }
+</script>
     <div id="main">
-        <img src="/images/icon_crime.gif" />
-        <img src="/images/title_crimereports.gif" />
+        <img src="/images/icon_commcompare.gif" />
+        <img src="/images/title_communityinformation.gif" />
         <br />
         <img src="/images/bnr_choosealocation.gif" />
         <br />
@@ -19,6 +24,5 @@
             <img height="1px" src="/images/mainpx.gif" width="470px" />
         </div>
         <br />
-        <input type="submit" value="" id="submitButton" />
+        <a href="#" onclick="javascript:toDisplay()"><img src="/images/btn_submit.gif" /></a>
     </div>
-}

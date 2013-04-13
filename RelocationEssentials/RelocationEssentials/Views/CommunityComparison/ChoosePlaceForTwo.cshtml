@@ -1,9 +1,17 @@
 ﻿@{
     ViewBag.Title = "ChoosePlaceForTwo";
 }
+<script type="text/javascript">
+    var place1 = document.getElementById("Place1"),
+        place2 = document.getElementById("Place2");
 
-@using(Html.BeginForm())
-{
+    toCompare = function () {
+        if (place1.value != "" && place2.value != "") {
+            parent.swapPage("CommunityComparison/ComparePlace?Place1=" + place1.value + "&Place2=" + place2.value);
+        }
+    }
+
+</script>
     <div id="main">
         <img src="/images/icon_commcompare.gif" />
         <img src="/images/title_communityinformation.gif" />
@@ -27,6 +35,5 @@
             <img height="1px" src="/images/mainpx.gif" width="470px" />
         </div>
         <br />
-        <input type="submit" value="" id="submitButton" />
+        <a href="#" onclick="javascript:toCompare()"><img src="/images/btn_submit.gif" /></a>
     </div>
-}

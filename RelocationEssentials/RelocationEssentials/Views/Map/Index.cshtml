@@ -67,21 +67,189 @@
 
     function initElement(svgDoc, area) {
         var e = svgDoc.getElementById(area);
+        e.classname = "tooltip";
         e.addEventListener("click", function () { loadPage(area) }, false);
-        e.addEventListener("mouseover", function () { svgDoc.getElementById(area).style.fill = "#000000"; }, false);
         e.addEventListener("mouseout", function () { svgDoc.getElementById(area).style.fill = mainColor; }, false);
         e.style.fill = mainColor;
+        var name;
+        switch (area) {
+            case "HI":
+                name = "Hawaii";
+                break;
+            case "AK":
+                name = "Alaska";
+                break;
+            case "FL":
+                name = "Florida";
+                break;
+            case "NH":
+                name = "New Hampshire";
+                break;
+            case "MI":
+                name = "Michigan";
+                break;
+            case "MI-":
+                name = "Michigan";
+                break;
+            case "SP-":
+                name = "Michigan";
+                break;
+            case "VT":
+                name = "Vermont";
+                break;
+            case "ME":
+                name = "Maine";
+                break;
+            case "RI":
+                name = "Rhode Island";
+                break;
+            case "NY":
+                name = "New York";
+                break;
+            case "PA":
+                name = "Pennsilvania";
+                break;
+            case "NJ":
+                name = "New Jersey";
+                break;
+            case "DE":
+                name = "Deleware";
+                break;
+            case "MD":
+                name = "Maryland";
+                break;
+            case "VA":
+                name = "Virginia";
+                break;
+            case "WV":
+                name = "West Virginia";
+                break;
+            case "OH":
+                name = "Ohio";
+                break;
+            case "IN":
+                name = "Indiana";
+                break;
+            case "IL":
+                name = "Illinois";
+                break;
+            case "CT":
+                name = "Connecticut";
+                break;
+            case "WI":
+                name = "Wisconson";
+                break;
+            case "NC":
+                name = "North Carolina";
+                break;
+            case "DC":
+                name = "Washington D.C.";
+                break;
+            case "MA":
+                name = "Massachusetts";
+                break;
+            case "TN":
+                name = "Tennessee";
+                break;
+            case "AR":
+                name = "Arkansas";
+                break;
+            case "MO":
+                name = "Missouri";
+                break;
+            case "GA":
+                name = "Georgia";
+                break;
+            case "SC":
+                name = "South Carolina";
+                break;
+            case "KY":
+                name = "Kentucky";
+                break;
+            case "AL":
+                name = "Alabama";
+                break;
+            case "LA":
+                name = "Louisiana";
+                break;
+            case "MS":
+                name = "Mississippi";
+                break;
+            case "IA":
+                name = "Iowa";
+                break;
+            case "MN":
+                name = "Minnesota";
+                break;
+            case "OK":
+                name = "Oklahoma";
+                break;
+            case "TX":
+                name = "Texas";
+                break;
+            case "NM":
+                name = "New Mexico";
+                break;
+            case "KS":
+                name = "Kansas";
+                break;
+            case "NE":
+                name = "New England";
+                break;
+            case "SD":
+                name = "South Dakota";
+                break;
+            case "ND":
+                name = "North Dakota";
+                break;
+            case "WY":
+                name = "Wyoming";
+                break;
+            case "MT":
+                name = "Montana";
+                break;
+            case "CO":
+                name = "Colorado";
+                break;
+            case "ID":
+                name = "Idaho";
+                break;
+            case "UT":
+                name = "Utah";
+                break;
+            case "AZ":
+                name = "Arizona";
+                break;
+            case "NV":
+                name = "Nevada";
+                break;
+            case "OR":
+                name = "Oregon";
+                break;
+            case "WA":
+                name = "Washington";
+                break;
+            case "CA":
+                name = "California";
+        }
+        e.addEventListener("mouseover", function () {
+            svgDoc.getElementById(area).style.fill = "#000000";
+            var title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+            title.textContent = name;
+            e.appendChild(title);
+        }, false);
     }
 
     function loadPage(area) {
-        document.getElementById('mapDiv').style.display = "none";
+        document.getElementById('loadingImage').src = "/images/ajax-loader.gif";
+        document.getElementById('loading').style.visibility= "visible";
         $('#statePage').load('Map/StateDisplay?StateAbbrv=' + area, function () {
+            document.getElementById('loadingImage').src = "#";
+            document.getElementById('loading').style.visibility = "hidden";
+            document.getElementById('mapDiv').style.display = "none";
             document.getElementById('stateTitle').src = "/images/StateTitle_" + area + ".gif";
             document.getElementById('stateImg').src = "/images/statemap_" + area + ".gif";
             document.getElementById('atAGlance').src = "/images/AtAGlance_" + area + ".gif";
-            document.getElementById('stateName1').innerText = area;
-            document.getElementById('stateName2').innerText = area;
-            document.getElementById('stateName3').innerText = area;
             document.getElementById('statePage').style.display = "block";
         });
     }
@@ -93,5 +261,8 @@
     </div>
     <div id="statePage" style="display:none">
         
+    </div>
+    <div id="loading" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(100,100,100,0.5); visibility:hidden">
+        <img src="#" id="loadingImage" style="position:fixed; left:45%; top:50%; height:10px" />
     </div>
 </div>
